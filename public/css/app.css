@@ -1,0 +1,214 @@
+.container{
+    margin: 0 140px;
+}
+
+.banner-content  {
+    display: flex;
+    justify-content: center;
+}
+
+
+.banner-text h1 {
+    color:#4e4e4e;
+    font-size:96px;
+}
+
+.btn{
+    background-color:#f6a8b5;
+    height:47px;
+    width:220px;
+    border-radius:10px;
+    border: none;
+    color: #fff;
+    font-size:24px;
+    font-family:Inter;
+}
+
+.advantages{
+    margin-top: 100px;
+}
+
+.advantages-list{
+    display: flex;
+    justify-content: center;
+}
+
+.advantages-text h2 {
+    color:#4e4e4e;
+    text-align:center;
+    font-size:64px;
+    font-family:Inter;
+    margin: 0;
+}
+
+.advantages-img img{
+    margin: 0 auto;
+}
+
+.advantages-text h3 {
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Inter;
+    text-align: center;
+}
+
+.advantages-text p {
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Inter;
+    text-align: center;
+}
+
+.advantages-list{
+    margin-top: 50px;
+}
+
+.advantages-list-item{
+    max-width: 350px;
+}
+
+.advantages-button {
+    background-color:#f6a8b5;
+    height:47px;
+    width:267px;
+    border-radius:10px;
+    border: none;
+    color: #4E4E4E;
+    font-size:20px;
+    font-family:Inter;
+}
+
+.services{
+    margin-top: 100px;
+}
+
+.services-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.services-text h2 {
+    color:#4e4e4e;
+    font-size:64px;
+    font-family:Inter;
+    margin: 0;
+}
+
+.services-text p{
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Inter;
+}
+
+
+.values{
+    margin-top: 100px;
+}
+
+.values-img img{
+    margin: 0 auto;
+}
+
+.values-content{
+    background-color: #FBD4DA;
+}
+
+.values h2{
+    color:#4e4e4e;
+    font-size:64px;
+    font-family:Inter;
+    text-align: center;
+    margin: 0;
+}
+
+.values p{
+    color:#4e4e4e;
+    text-align:center;
+    font-size:28px;
+    font-family:Inter;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.doctors{
+    margin-top: 100px;
+}
+
+.doctors h2{
+    color:#4e4e4e;
+    font-size:64px;
+    font-family:Inter;
+    margin: 0;
+}
+
+.recording{
+    margin-top: 100px;
+}
+
+.recording h2{
+    color:#4e4e4e;
+    text-align:center;
+    font-size:64px;
+    font-family:Inter;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.recording-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+label{
+    color:#4e4e4e;
+    text-align:left;
+    vertical-align:text-top;
+    font-size:24px;
+    font-family:Inter;
+}
+
+input{
+    height:41px;
+    width:612px;
+    border-radius:10px;
+    border:2px solid #c0c0c0;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.recording-btn{
+    background-color:#f6a8b5;
+    height:47px;
+    width:220px;
+    border-radius:10px;
+    border: none;
+    color: #fff;
+    font-size:24px;
+    font-family:Inter;
+}
+
+.recording-form{
+    margin-top: 25px;
+}
+
+.recording-content p{
+    color:#4e4e4e;
+    font-size:15px;
+    font-family:Inter;
+    width:609px;    
+}
+
+.reviews{
+    margin-top: 100px;
+}
+
+.reviews h2{
+    color:#4e4e4e;
+    font-size:64px;
+    font-family:Inter;
+    margin: 0;
+
+}
