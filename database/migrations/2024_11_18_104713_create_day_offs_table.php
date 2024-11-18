@@ -11,22 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('doctors', function (Blueprint $table) {
+        Schema::create('day_offs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('specialization');
-            $table->string('phone');
+            $table->foreignId('doctor_id')->constrained('doctors');
+            $table->date('day_off');
+            $table->string('reason')->nullable();
             $table->timestamps();
         });
     }
-
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('doctors');
+        Schema::dropIfExists('day_offs');
     }
 };

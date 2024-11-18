@@ -21,5 +21,5 @@ class DoctorController extends Controller
 
         Doctor::create($request->all());
         return back();
-}
+    }
 }

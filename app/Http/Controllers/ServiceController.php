@@ -32,14 +32,14 @@ class ServiceController extends Controller
         $doctors = array_unique($doctors);
         //Проверка на наличии врачей в таблице врачи
         $doctorsBD = Doctor::pluck('id')->toArray();
-        foreach ($doctors as $key => $doc){
-            if (!in_array($doc, $doctorsBD)){
+        foreach ($doctors as $key => $doc) {
+            if (!in_array($doc, $doctorsBD)) {
                 throw ValidationException::withMessages(["doctor_$key" => ['Такой врач больше не существует']]);
             }
         }
-        $service = Service::create($request->only('name', 'price','duration','caption','recommendation','description'));
+        $service = Service::create($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'));
         $service->doctors()->attach($doctors);
 
         return back();
-}
+    }
 }
