@@ -10,14 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('serve', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100)->unique(); ;
-            $table->string('doctor'); // Убедитесь, что это поле нужно только один раз
-            $table->integer('price')->nullable(); 
-            $table->integer('duration')->nullable(); 
+            $table->string('name',100)->unique(); 
+            $table->integer('price'); 
+            $table->integer('duration'); 
             $table->string('caption',255);
-            $table->string('recommendation')->nullable();
+            $table->string('recommendation');
             $table->text('description')->nullable();; //{{!!и норм будет выводиться!!}} погуглить 
             $table->boolean('isactive')->default(1);
             $table->timestamps();
@@ -30,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('serve');
+        Schema::dropIfExists('services');
     }
 };
