@@ -2,7 +2,7 @@
 
 <h1>Записаться</h1>
 
-</x-layout>
+
 
 <form action="{{ route('store') }}" method="POST">
         @csrf
@@ -41,3 +41,5 @@
 
         <button type="submit">Записаться</button>
     </form>
+
+</x-layout>

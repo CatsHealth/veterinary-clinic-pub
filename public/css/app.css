@@ -1,3 +1,7 @@
+.body {
+    margin: 0;
+}
+
 .container{
     margin: 0 140px;
 }
@@ -10,8 +14,15 @@
 
 .banner-text h1 {
     color:#4e4e4e;
-    font-size:96px;
+    font-size:85px;
+    font-family:Montserrat Alternates;
 }
+
+.banner-text p{
+    font-size:20px;
+    font-family:Montserrat;
+}
+
 
 .btn{
     background-color:#f6a8b5;
@@ -20,8 +31,9 @@
     border-radius:10px;
     border: none;
     color: #fff;
-    font-size:24px;
-    font-family:Inter;
+    font-size:20px;
+    font-family: Montserrat Alternates;
+
 }
 
 .advantages{
@@ -36,8 +48,8 @@
 .advantages-text h2 {
     color:#4e4e4e;
     text-align:center;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     margin: 0;
 }
 
@@ -48,15 +60,13 @@
 .advantages-text h3 {
     color:#4e4e4e;
     font-size:20px;
-    font-family:Inter;
-    text-align: center;
+    font-family:Montserrat;
 }
 
 .advantages-text p {
     color:#4e4e4e;
     font-size:16px;
-    font-family:Inter;
-    text-align: center;
+    font-family:Montserrat;
 }
 
 .advantages-list{
@@ -65,18 +75,9 @@
 
 .advantages-list-item{
     max-width: 350px;
+    text-align: center;
 }
 
-.advantages-button {
-    background-color:#f6a8b5;
-    height:47px;
-    width:267px;
-    border-radius:10px;
-    border: none;
-    color: #4E4E4E;
-    font-size:20px;
-    font-family:Inter;
-}
 
 .services{
     margin-top: 100px;
@@ -89,15 +90,31 @@
 
 .services-text h2 {
     color:#4e4e4e;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     margin: 0;
 }
 
 .services-text p{
     color:#4e4e4e;
     font-size:16px;
-    font-family:Inter;
+    font-family:Montserrat;
+    max-width: 436px;
+}
+
+.services-btn{
+    text-align: end;
+}
+
+.services-button {
+    background-color:#f6a8b5;
+    height:47px;
+    width:267px;
+    border-radius:10px;
+    border: none;
+    color: #fff;
+    font-size:18px;
+    font-family:Montserrat Alternates;
 }
 
 
@@ -105,9 +122,20 @@
     margin-top: 100px;
 }
 
-.values-img img{
-    margin: 0 auto;
+.values-img{
+   text-align: center;
+   margin-top: 25px;
+   margin-bottom: 0px;
 }
+
+
+.values-image{
+    display: flex;
+}
+
+.values-img img{
+    margin-bottom: 0px;
+ }
 
 .values-content{
     background-color: #FBD4DA;
@@ -115,8 +143,8 @@
 
 .values h2{
     color:#4e4e4e;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     text-align: center;
     margin: 0;
 }
@@ -125,7 +153,7 @@
     color:#4e4e4e;
     text-align:center;
     font-size:28px;
-    font-family:Inter;
+    font-family:Montserrat;
     padding-top: 50px;
     margin: 0;
 }
@@ -136,9 +164,30 @@
 
 .doctors h2{
     color:#4e4e4e;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     margin: 0;
+}
+
+.doctor-name {
+    background-color: #FBD4DA;
+    width: 565px;
+    height: 131px;
+    position: absolute;
+}
+
+.doctor-name h3{
+    color:#4e4e4e;
+    font-size:24px;
+    font-family:Montserrat Alternates;
+    margin-left: 30px;
+}
+
+.doctor-name h4{
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    margin-left: 30px;
 }
 
 .recording{
@@ -148,8 +197,8 @@
 .recording h2{
     color:#4e4e4e;
     text-align:center;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     padding-top: 50px;
     margin: 0;
 }
@@ -167,7 +216,7 @@ label{
     text-align:left;
     vertical-align:text-top;
     font-size:24px;
-    font-family:Inter;
+    font-family:Montserrat;
 }
 
 input{
@@ -187,7 +236,7 @@ input{
     border: none;
     color: #fff;
     font-size:24px;
-    font-family:Inter;
+    font-family:Montserrat Alternates;
 }
 
 .recording-form{
@@ -196,8 +245,8 @@ input{
 
 .recording-content p{
     color:#4e4e4e;
-    font-size:15px;
-    font-family:Inter;
+    font-size:16px;
+    font-family:Montserrat;
     width:609px;    
 }
 
@@ -207,8 +256,133 @@ input{
 
 .reviews h2{
     color:#4e4e4e;
-    font-size:64px;
-    font-family:Inter;
+    font-size:55px;
+    font-family:Montserrat Alternates;
     margin: 0;
+    text-align: center;
 
+}
+
+.reviews-name{
+    display: flex;   
+}
+
+.reviews-name img{
+    margin-left: 15px;   
+}
+
+.reviews-list{
+    display: flex;
+}
+
+.reviews-list-item{
+    max-width: 300px;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.reviews-list-item h3{
+    max-width: 300px;
+    color:#f6a8b5;
+    font-size:20px;
+    font-family:Montserrat;
+    margin: 0;
+}
+
+.reviews-list-item p{
+    color:#4e4e4e;  
+    font-size:20px;
+    font-family:Montserrat;
+    margin-top: 20px;
+}
+
+.review-btn{
+    background-image: url('/img/left.svg');
+    background-repeat: no-repeat;
+    width: 65px;
+    height: 70px;
+    border: none;
+    background-color: transparent;
+}
+
+.review-btn-right{
+    background-image: url('/img/right.svg');
+    background-repeat: no-repeat;
+    width: 65px;
+    height: 70px;
+    border: none;
+    background-color: transparent;
+}
+
+.reviews-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    background-color: #FBD4DA;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-info{
+    margin-top: 107px;
+}
+
+.footer-info h3{
+    margin-top: 0;
+    color:#4e4e4e;
+    font-size:24px;
+    font-family:Montserrat;
+}
+
+.footer-info p{
+    margin-top: 0;
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.footer-nav{
+    display: grid;
+    margin-top: 107px;
+}
+
+.map{
+    margin-top: 107px;
+}
+
+.tel{
+    display: flex;
+    
+}
+
+.email-box{
+    display: flex;
+}
+
+.adres{
+    display: flex;
+}
+
+.footer-nav a{
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    text-decoration: none;
+}
+
+.copyright p{
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Montserrat;
+    text-align: center;
 }
