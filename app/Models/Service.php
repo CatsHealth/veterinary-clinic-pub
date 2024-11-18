@@ -8,12 +8,18 @@ class Service extends Model
 {
     protected $fillable = [
         'name',
-        'doctor',
+        'id_doctor',
         'price',
         'caption',
         'recommendation',
         'description',
         'isactive',
+        'duration',
 
     ];
+
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class, 'doctor_service');
+    }
 }

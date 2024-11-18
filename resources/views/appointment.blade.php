@@ -10,17 +10,14 @@
         <label for="service">Услуга:</label>
         <select name="service" id="service" required>
             @foreach($services as $service)
-                <option value="{{ $service }}">{{ $service }}</option>
+                <option value="{{ $service->name }}">{{ $service->name }}</option>
             @endforeach
         </select>
+        
         <br>
 
         <label for="date">Дата:</label>
-        <select name="date" id="date" required>
-            @foreach($dates as $date)
-                <option value="{{ $date }}">{{ $date }}</option>
-            @endforeach
-        </select>
+        <input type="date" id="date" name="date"  />
         <br>
 
         <label for="time">Время:</label>

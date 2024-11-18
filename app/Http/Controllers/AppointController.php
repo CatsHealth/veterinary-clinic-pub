@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appoint;
+use App\Models\Appointments;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class AppointController extends Controller
 {
     public function index()
-    {$services = ['Услуга 1', 'Услуга 2', 'Услуга 3'];
+    {   $services = Service::all();
         $dates = ['2023-10-01', '2023-10-02']; 
         $times = ['10:00', '11:00']; 
+        
         return view('appointment', compact('services', 'dates', 'times'));;
     }
 
@@ -24,6 +26,7 @@ class AppointController extends Controller
         ]);
 
         // Создание новой записи
-        Appoint::create($request->all());
+        Appointments::create($request->all());
+        return back();
     }
 }
