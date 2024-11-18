@@ -1,7 +1,5 @@
 <x-layout>
-    <h1>Записаться</h1>
-</x-layout>
-
+<h1>Записаться</h1>
 <form action="{{ route('store') }}" method="POST">
     @csrf
 
@@ -42,6 +40,12 @@
     <button type="submit">Записаться</button>
 </form>
 
+
+        <button type="submit">Записаться</button>
+    </form>
+
+</x-layout>
+
 <script>
     $(document).on('click', '.select-date', function () {
         var selectedDate = $(this).data('date');
@@ -49,3 +53,4 @@
         $('#date-form').show();
     });
 </script>
+
