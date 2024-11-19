@@ -1,3 +1,80 @@
+/*общие*/
+* { 
+    margin: 0; 
+    padding: 0; 
+}  
+html { 
+   scroll-behavior: smooth; 
+}  
+body {
+    margin: 0 auto; 
+}  
+ul {
+   list-style: none; 
+} 
+a { 
+   color: #7E7F86; 
+   text-decoration: none; 
+} 
+a:visited { 
+   text-decoration: none; 
+} 
+a:hover { 
+   color: #25202F; 
+}
+/*.общие*/
+
+/*header*/
+
+.header_conteiner {
+    max-width: 1416px;   
+    width: 100%;         
+    margin: 0 auto;       
+    padding: 0 0;   
+}
+
+.row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 16px;  
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Навигация */
+.nav {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav a {
+    color: #949393;
+    text-decoration: none;
+    transition: 0.1s;
+}
+
+.nav a.selectid {
+    color: #f6a8b5;
+}
+
+.nav a.selectid:hover {
+    color: #ebc6cc;
+}
+
+.nav a:hover {
+    color: #cccccc;
+}
+/*.header*/
+
+
 .body {
     margin: 0;
 }
