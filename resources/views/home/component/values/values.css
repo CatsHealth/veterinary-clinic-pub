@@ -1,0 +1,39 @@
+.values{
+    margin-top: 100px;
+}
+
+.values-img{
+   text-align: center;
+   margin-top: 25px;
+   margin-bottom: 0px;
+}
+
+
+.values-image{
+    display: flex;
+}
+
+.values-img img{
+    margin-bottom: 0px;
+ }
+
+.values-content{
+    background-color: #FBD4DA;
+}
+
+.values h2{
+    color:#4e4e4e;
+    font-size:55px;
+    font-family:Montserrat Alternates;
+    text-align: center;
+    margin: 0;
+}
+
+.values p{
+    color:#4e4e4e;
+    text-align:center;
+    font-size:28px;
+    font-family:Montserrat;
+    padding-top: 50px;
+    margin: 0;
+}

@@ -1,0 +1,31 @@
+.doctors{
+    margin-top: 100px;
+}
+
+.doctors h2{
+    color:#4e4e4e;
+    font-size:55px;
+    font-family:Montserrat Alternates;
+    margin: 0;
+}
+
+.doctor-name {
+    background-color: #FBD4DA;
+    width: 565px;
+    height: 131px;
+    position: absolute;
+}
+
+.doctor-name h3{
+    color:#4e4e4e;
+    font-size:24px;
+    font-family:Montserrat Alternates;
+    margin-left: 30px;
+}
+
+.doctor-name h4{
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    margin-left: 30px;
+}

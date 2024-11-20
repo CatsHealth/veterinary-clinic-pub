@@ -1,0 +1,41 @@
+.advantages{
+    margin-top: 100px;
+}
+
+.advantages-list{
+    display: flex;
+    justify-content: center;
+}
+
+.advantages-text h2 {
+    color:#4e4e4e;
+    text-align:center;
+    font-size:55px;
+    font-family:Montserrat Alternates;
+    margin: 0;
+}
+
+.advantages-img img{
+    margin: 0 auto;
+}
+
+.advantages-text h3 {
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+}
+
+.advantages-text p {
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Montserrat;
+}
+
+.advantages-list{
+    margin-top: 50px;
+}
+
+.advantages-list-item{
+    max-width: 350px;
+    text-align: center;
+}
