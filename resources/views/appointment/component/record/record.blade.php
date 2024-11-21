@@ -17,11 +17,14 @@
 
         <div class="form-group">
             <label for="date" class="appointment-label">Выберите дату:</label>
-            <select name="date" id="date" class="appointment-select" required>
-                @foreach($dates as $date)
-                    <option value="{{ $date }}" @if(old('date') == $date) selected @endif>{{ $date }}</option>
+            <div class="form_radio_container">
+                @foreach($dates as $index => $date)
+                    <div class="form_radio_btn">
+                        <input id="date_{{ $index }}" type="radio" name="date" value="{{ $date }}" />
+                        <label for="date_{{ $index }}">{{ $date }}</label>
+                    </div>
                 @endforeach
-            </select>
+            </div>
         </div>
 
         <div class="form-group">
