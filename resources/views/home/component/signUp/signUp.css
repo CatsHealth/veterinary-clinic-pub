@@ -1,0 +1,41 @@
+.recording{
+    margin-top: 100px;
+}
+
+.recording h2{
+    color:#4e4e4e;
+    text-align:center;
+    font-size:55px;
+    font-family:Montserrat Alternates;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.recording-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.recording-btn{
+    background-color:#f6a8b5;
+    height:47px;
+    width:220px;
+    border-radius:10px;
+    border: none;
+    color: #fff;
+    font-size:24px;
+    font-family:Montserrat Alternates;
+}
+
+.recording-form{
+    margin-top: 25px;
+}
+
+.recording-content p{
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Montserrat;
+    width:609px;
+}

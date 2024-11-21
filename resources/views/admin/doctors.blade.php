@@ -1,26 +1,32 @@
 <x-layout>
-<x-admin></x-admin>
-<form action="{{ route('doctor.store') }}" method="POST">
-    @csrf
+    <x-admin>
+        <form class="doctor-form" action="{{ route('doctor.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="name">ФИО:</label>
+                <input type="text" id="name" name="name" required maxlength="100" placeholder="Введите ФИО врача">
+                @error('name')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
 
-    <label for="name">ФИО:</label>
-    <input type="text" id="name" name="name" required maxlength="100">
-    @error('name')
-        <div style="color: red;">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label for="specialization">Специализация:</label>
+                <input type="text" id="specialization" name="specialization" required maxlength="100" placeholder="Введите специализацию">
+                @error('specialization')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
 
-    <label for="specialization">Специализация:</label>
-    <input type="text" id="specialization" name="specialization" required maxlength="100">
-    @error('specialization')
-        <div style="color: red;">{{ $message }}</div>
-    @enderror
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="phone" id="phone" name="phone" required maxlength="100" placeholder="Введите номер телефона">
+                @error('phone')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
 
-    <label for="phone">Телефон</label>
-    <input type="phone" id="phone" name="phone" required maxlength="100">
-    @error('phone')
-        <div style="color: red;">{{ $message }}</div>
-    @enderror
-
-
-    <button type="submit">Сохранить</button>
+            <button type="submit">Сохранить</button>
+        </form>
+    </x-admin>
 </x-layout>
