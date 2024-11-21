@@ -1,42 +1,33 @@
 @vite(['resources/views/home/component/reviews/reviews.css'])
+@vite(['resources/views/home/component/reviews/reviews.js'])
 <div class="reviews">
+    <h2>Отзывы</h2>
     <div class="container">
-        <h2>Отзывы</h2>
-        <div class="reviews-content">
-            <button type="submit" class="review-btn"></button>
-            <div class="reviews-list">
+        <div class="button-prev"><img src="{{ asset('/img/left.svg') }}"></div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                @foreach ($reviews as $review)
+                    <div class="swiper-slide">
+                        <div class="reviews-list-item">
+                            <div class="reviews-name">
+                                <h3>{{ $review['name'] }}</h3>
+                                <p>Оценка: {{ $review['estimation'] }}</p>
+                                @for ($x=($review['estimation']); $x>0;$x--)
+                                    <img src="{{ asset('img/star.svg') }}" class="star-rating" alt="reviews">
+                                @endfor
+                                @for ($x=($review['estimation']); $x<5;$x++)
+                                    <img src="{{ asset('img/star-none.svg') }}" class="star-rating" alt="reviews">
+                                @endfor
+                            </div>
+                            <div class="reviews-text">
+                                <p>{{ $review['text'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
 
-                <div class="reviews-list-item">
-                    <div class="reviews-name">
-                        <h3>Иванов Иван</h3>
-                        <img src="{{ asset('img/star.svg') }}" alt="reviews">
-                    </div>
-                    <div class="reviews-text">
-                        <p>Очень доволен вашей работой! Обслуживание было быстрым и профессиональным.</p>
-                    </div>
-                </div>
-
-                <div class="reviews-list-item">
-                    <div class="reviews-name">
-                        <h3>Иванов Иван</h3>
-                        <img src="{{ asset('img/star.svg') }}" alt="reviews">
-                    </div>
-                    <div class="reviews-text">
-                        <p>Очень доволен вашей работой! Обслуживание было быстрым и профессиональным.</p>
-                    </div>
-                </div>
-
-                <div class="reviews-list-item">
-                    <div class="reviews-name">
-                        <h3>Иванов Иван</h3>
-                        <img src="{{ asset('img/star.svg') }}" alt="reviews">
-                    </div>
-                    <div class="reviews-text">
-                        <p>Очень доволен вашей работой! Обслуживание было быстрым и профессиональным.</p>
-                    </div>
-                </div>
             </div>
-            <button type="submit" class="review-btn-right"></button>
         </div>
+        <div class="button-next"><img src="{{ asset('/img/right.svg') }}"></div>
     </div>
 </div>

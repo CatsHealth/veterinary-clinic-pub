@@ -16,7 +16,6 @@ class AppointController extends Controller
         $times = ['10:00', '11:00'];
 
         return view('appointment/appointment', compact('services', 'dates', 'times'));
-        ;
     }
 
     public function store(Request $request)
