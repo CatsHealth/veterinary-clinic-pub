@@ -21,8 +21,9 @@ class AppointController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request->all());
         $request->validate([
-            'service' => 'required|string',
+            'id_service' => 'required',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'name' => 'required|string|max:255',
