@@ -2,7 +2,7 @@
 @vite(['resources/views/home/component/reviews/reviews.js'])
 <div class="reviews">
     <h2>Отзывы</h2>
-    <div class="container">
+    <div class="container container-swiper">
         <div class="button-prev"><img src="{{ asset('/img/left.svg') }}"></div>
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -11,7 +11,6 @@
                         <div class="reviews-list-item">
                             <div class="reviews-name">
                                 <h3>{{ $review['name'] }}</h3>
-                                <p>Оценка: {{ $review['estimation'] }}</p>
                                 @for ($x=($review['estimation']); $x>0;$x--)
                                     <img src="{{ asset('img/star.svg') }}" class="star-rating" alt="reviews">
                                 @endfor
