@@ -17,6 +17,6 @@ class HomeController extends Controller
         ];
         $services = Service::take(5)->get();
         return view('home/home', compact('reviews', 'services'));
-        return view('home/home', compact('reviews'));
+
     }
 }

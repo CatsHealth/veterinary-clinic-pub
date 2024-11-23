@@ -12,10 +12,13 @@ class AppointController extends Controller
     public function index()
     {
         $services = Service::all();
-        $dates = $this->getAllDatesInMonth( date('m'),date('Y'));
-        $times = ['10:00', '11:00'];
-
+        $appointments = Appointments::all();
+        $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
+        $times = $this->getTimeIntervals(Service::first(), $appointments);
+        //dd($times);
         return view('appointment/appointment', compact('services', 'dates', 'times'));
+
+
     }
 
     public function store(Request $request)
@@ -40,11 +43,11 @@ class AppointController extends Controller
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
         $dates = [];
         // $date->setDate($year, $month, 1);
-        dump($daysInMonth);
+        //dump($daysInMonth);
         for ($date = (new DateTime())->modify("first day of"); $date->format("m") == $month; $date->modify('+1 day')) {
             $dates[] = $date->format('Y-m-d');
         }
-        
+
 
         // Заполняем массив датами
         //for ($day = 1; $day <= $daysInMonth; $day++) {
@@ -54,4 +57,35 @@ class AppointController extends Controller
         return $dates;
     }
 
+    public function getTimeIntervals($service, $appointments)
+    {
+        $from = new DateTime('08:00:00');
+        $until = new DateTime('20:00:00');
+        $duration = $service ? $service->duration : 30; // Длительность услуги по умолчанию 30 минут
+        $intervals = [];
+
+        $busyTimes = $appointments->pluck('time')->toArray();
+        $busyTimes = array_map(function($time) {
+            return substr($time, 0, 5); 
+        }, $busyTimes);
+
+        while ($from < $until) {
+
+            $currentTime = $from->format('H:i');
+            // Проверяем, занято ли текущее время или его интервал
+            if (!in_array($currentTime, $busyTimes)) {
+                $intervals[] = $currentTime; 
+            }
+            
+            // Увеличиваем время на длительность
+            $from->modify("+{$duration} minutes");
+        }
+
+        return $intervals;
+    }
+
+
+
 }
+
+
