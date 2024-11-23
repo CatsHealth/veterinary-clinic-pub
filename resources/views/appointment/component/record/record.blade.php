@@ -11,10 +11,7 @@
             <select name="id_service" id="id_service" class="appointment-select" required>
                 @foreach($services as $service)
                     <option value="{{ $service->id }}">{{ $service->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
+</div>
         <div class="form-group">
             <label for="date" class="appointment-label">Выберите дату:</label>
             <div class="form_radio_container">

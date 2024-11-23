@@ -15,8 +15,7 @@ class AppointController extends Controller
         $dates = $this->getAllDatesInMonth( date('m'),date('Y'));
         $times = ['10:00', '11:00'];
 
-        return view('appointment', compact('services', 'dates', 'times'));
-        ;
+        return view('appointment/appointment', compact('services', 'dates', 'times'));
     }
 
     public function store(Request $request)

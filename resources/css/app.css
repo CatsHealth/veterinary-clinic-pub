@@ -1,3 +1,158 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*общие*/
+* { 
+    margin: 0; 
+    padding: 0; 
+}  
+html { 
+   scroll-behavior: smooth; 
+}  
+body {
+    margin: 0 auto; 
+}  
+ul {
+   list-style: none; 
+} 
+a { 
+   color: #7E7F86; 
+   text-decoration: none; 
+} 
+a:visited { 
+   text-decoration: none; 
+} 
+a:hover { 
+   color: #25202F; 
+}
+/*.общие*/
+/*header*/
+.header_conteiner {
+    max-width: 1416px;   
+    width: 100%;         
+    margin: 0 auto;       
+    padding: 0 0;   
+}
+.row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 16px;  
+}
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+}
+/* Навигация */
+.nav {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+.nav a {
+    color: #949393;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.nav a.selectid {
+    color: #f6a8b5;
+}
+
+.nav a.selectid:hover {
+    color: #ebc6cc;
+}
+.nav a:hover {
+    color: #cccccc;
+}
+/*.header*/
+.body {
+    margin: 0;
+}
+.container{
+    margin: 0 140px;
+}
+.btn{
+    background-color:#f6a8b5;
+    height:47px;
+    width:220px;
+    border-radius:10px;
+    border: none;
+    color: #fff;
+    font-size:20px;
+    font-family: Montserrat Alternates;
+}
+label{
+    color:#4e4e4e;
+    text-align:left;
+    vertical-align:text-top;
+    font-size:24px;
+    font-family:Montserrat;
+}
+input{
+    height:41px;
+    width:612px;
+    border-radius:10px;
+    border:2px solid #c0c0c0;
+    padding: 5px;
+    margin: 5px 0;
+}
+footer{
+    background-color: #FBD4DA;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-info{
+    margin-top: 107px;
+}
+
+.footer-info h3{
+    margin-top: 0;
+    color:#4e4e4e;
+    font-size:24px;
+    font-family:Montserrat;
+}
+
+.footer-info p{
+    margin-top: 0;
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.footer-nav{
+    display: grid;
+    margin-top: 107px;
+}
+
+.map{
+    margin-top: 107px;
+}
+.tel{
+    display: flex;
+    
+}
+.email-box{
+    display: flex;
+}
+.adres{
+    display: flex;
+}
+.footer-nav a{
+    color:#4e4e4e;
+    font-size:20px;
+    font-family:Montserrat;
+    text-decoration: none;
+}
+.copyright p{
+    color:#4e4e4e;
+    font-size:16px;
+    font-family:Montserrat;
+    text-align: center;
+}

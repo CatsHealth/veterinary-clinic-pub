@@ -8,6 +8,7 @@
                     <p>Общие осмотры и профилактика: Регулярные осмотры помогут выявить проблемы на ранних стадиях.</p>
                 </div>
                 <div class="services-list">
+
                     @foreach ($services as $service)  
                           <div class="services-list-item">
                                 <p> {{$service->name}}</p>
@@ -24,6 +25,5 @@
         <div class="services-btn">
             <button class="services-button">Посмотреть все услуги</button>
         </div>
-    </div>
     </div>
 </section>
