@@ -50,6 +50,30 @@
                 @enderror
             </div>
 
+
+    @error('doctor_2')
+        <div style="color: red;">{{ $message }}</div>
+    @enderror
+
+    <select id="doctor" name="doctor_3">
+        <option value="">Выберите врача</option>
+        @foreach($doctors as $doctor)
+            <option value="{{ $doctor->id }}" @if(old('doctor_3') == $doctor['id']) selected @endif>{{ $doctor->name }}</option>
+        @endforeach
+    </select>
+
+            <div class="form-group service-price">
+                <label for="price">Цена:</label>
+                <input type="number" id="price" name="price"  min=0 class="service-price-input" required value="{{ old('price') }}" placeholder="Введите цену услуги">
+                @error('price')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group service-duration">
+                <label for="duration">Продолжительность:</label>
+                <input type="number" id="duration" name="duration"  min=0 class="service-duration-input" required value="{{ old('duration') }}" placeholder="Введите продолжительность услуги">
+
             <div class="form-group service-price">
                 <label for="price">Цена:</label>
                 <input type="number" id="price" name="price" class="service-price-input" required value="{{ old('price') }}" placeholder="Введите цену услуги">
@@ -61,6 +85,7 @@
             <div class="form-group service-duration">
                 <label for="duration">Продолжительность:</label>
                 <input type="number" id="duration" name="duration" class="service-duration-input" required value="{{ old('duration') }}" placeholder="Введите продолжительность услуги">
+
                 @error('duration')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
