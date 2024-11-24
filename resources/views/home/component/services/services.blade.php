@@ -29,7 +29,7 @@
 
             </div>
             <div class="services-btn">
-                <button class="services-button">Посмотреть все услуги</button>
+                <button class="btn">Посмотреть все услуги</button>
             </div>
         </div>
     </div>

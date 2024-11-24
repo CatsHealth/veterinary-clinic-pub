@@ -36,7 +36,7 @@
 
                     <p>Внимание: После отправки ближайшее время с вами свяжется наш сотрудник для уточнения информации
                         по записи!</p>
-                    <button type="submit" class="recording-btn">Записаться</button>
+                    <button type="submit" class="btn">Записаться</button>
                 </form>
 
             </div>

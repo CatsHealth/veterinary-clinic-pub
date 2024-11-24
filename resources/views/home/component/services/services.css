@@ -20,18 +20,3 @@
     font-family:Montserrat;
     max-width: 436px;
 }
-
-.services-btn{
-    text-align: end;
-}
-
-.services-button {
-    background-color:#f6a8b5;
-    height:47px;
-    width:267px;
-    border-radius:10px;
-    border: none;
-    color: #fff;
-    font-size:18px;
-    font-family:Montserrat Alternates;
-}

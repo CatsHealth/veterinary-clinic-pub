@@ -46,6 +46,6 @@
             <input type="text" name="phone" id="phone" class="appointment-input" required>
         </div>
 
-        <button type="submit" class="appointment-submit-btn">Записаться</button>
+        <button type="submit" class="btn">Записаться</button>
     </form>
 </section>

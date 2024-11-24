@@ -90,7 +90,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="service-submit-btn">Сохранить</button>
+            <button type="submit" class="btn">Сохранить</button>
         </form>
     </x-admin>
 </x-layout>
