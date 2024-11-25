@@ -11,8 +11,8 @@
 
                     @foreach ($services as $service)  
                           <div class="services-list-item">
-                                <p> {{$service->name}}</p>
-                                <p> {{$service->caption}}</p>
+                                <p class="service-name"> {{$service->name}}</p>
+                                <p class="service-caption"> {{$service->caption}}</p>
                             </div>
                     @endforeach
 

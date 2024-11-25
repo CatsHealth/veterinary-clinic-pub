@@ -24,9 +24,7 @@ a:hover {
 }
 /*.общие*/
 /*header*/
-.header_conteiner {
-    max-width: 1416px;   
-    width: 100%;         
+.header_conteiner {       
     margin: 0 auto;       
     padding: 0 0;   
 }
@@ -165,4 +163,41 @@ footer{
     font-size:16px;
     font-family:Montserrat;
     text-align: center;
+}
+
+.services-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.services-list-item{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f6a8b5;
+    width: 220px;
+    margin: 0 40px 40px 0;
+}
+
+.conteiner{
+    margin: 0 140px;
+}
+
+.services-h1 h1{
+    margin: 50px 140px 50px 140px;
+    font-size: 36px;
+    color: #4e4e4e;
+}
+
+.service-name{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.service-caption{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
 }

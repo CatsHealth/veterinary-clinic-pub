@@ -20,3 +20,34 @@
     font-family:Montserrat;
     max-width: 436px;
 }
+
+.services-btn{
+    text-align: end;
+}
+
+.services-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.services-list-item{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f6a8b5;
+    width: 220px;
+    margin: 0 40px 40px 0;
+}
+
+.service-name{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.service-caption{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+}
