@@ -71,16 +71,20 @@ a:hover {
 .container{
     margin: 0 140px;
 }
+
 .btn{
     background-color:#f6a8b5;
-    height:47px;
-    width:220px;
+    padding: 10px 15px;
     border-radius:10px;
     border: none;
     color: #fff;
     font-size:20px;
-    font-family: Montserrat Alternates;
+    font-family:Montserrat Alternates;
 }
+.btn:hover{
+    background-color: #f49db6;
+}
+
 label{
     color:#4e4e4e;
     text-align:left;
@@ -127,7 +131,9 @@ footer{
     margin-top: 20px;
 }
 .footer-nav{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     margin-top: 107px;
 }
 
@@ -145,10 +151,14 @@ footer{
     display: flex;
 }
 .footer-nav a{
-    color:#4e4e4e;
+    color:#6e6e6e;
     font-size:20px;
     font-family:Montserrat;
     text-decoration: none;
+    transition: 0.1s;
+}
+.footer-nav a:hover {
+    color:#222222;
 }
 .copyright p{
     color:#4e4e4e;

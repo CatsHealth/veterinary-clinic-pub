@@ -26,7 +26,7 @@
                 @enderror
             </div>
 
-            <button type="submit">Сохранить</button>
+            <button type="submit" class="btn">Сохранить</button>
         </form>
     </x-admin>
 </x-layout>
