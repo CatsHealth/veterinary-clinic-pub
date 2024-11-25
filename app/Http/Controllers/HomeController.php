@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +15,8 @@ class HomeController extends Controller
             ["name" => "Иванов Киван", "estimation" => 1, "text" => "Очень доволен вашей работой! Обслуживание было быстрым и профессиональным. Ветеринар тщательно осмотрел моего питомца, поставил точный диагноз и объяснил все доступным языком."],
             ["name" => "Иванов Зиван", "estimation" => 5, "text" => "Очень доволен вашей работой! Обслуживание было быстрым и профессиональным. Ветеринар тщательно осмотрел моего питомца, поставил точный диагноз и объяснил все доступным языком."],
         ];
+        $services = Service::take(5)->get();
+        return view('home/home', compact('reviews', 'services'));
         return view('home/home', compact('reviews'));
     }
 }

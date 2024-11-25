@@ -8,24 +8,16 @@
                     <p>Общие осмотры и профилактика: Регулярные осмотры помогут выявить проблемы на ранних стадиях.</p>
                 </div>
                 <div class="services-list">
-                    <div class="services-list-item">
 
-                    </div>
-
-                    <div class="services-list-item">
-
-                    </div>
-
-                    <div class="services-list-item">
-
-                    </div>
-
-                    <div class="services-list-item">
-
-                    </div>
-
+                    @foreach ($services as $service)  
+                          <div class="services-list-item">
+                                <p> {{$service->name}}</p>
+                                <p> {{$service->caption}}</p>
+                            </div>
+                    @endforeach
 
                 </div>
+
 
             </div>
             <div class="services-btn">
