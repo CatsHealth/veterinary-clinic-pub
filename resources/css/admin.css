@@ -1,6 +1,5 @@
 /*sidebar*/
 .wrapper {
-    display: flex;
     font-size:20px;
     font-family:Montserrat;
 }
@@ -127,7 +126,6 @@ form label {
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1416px;
     margin: 20px auto;
     font-family: 'Montserrat', sans-serif;

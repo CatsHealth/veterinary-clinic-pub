@@ -17,7 +17,7 @@
         <div class="header_conteiner conteiner">
             <div class="row">
                 <div class="logo">
-                    <a href="{{ route('app') }}"><img src="{{ asset('img/left.svg') }}" alt="Logo" /></a>
+                    <a href="{{ route('app') }}"><img src="{{ asset('img/logo.svg') }}" alt="Logo" /></a>
                 </div>
                 <nav class="nav">
                     <a href="{{ route('app') }}" @if (request()->is('/')) class="selectid" @endif>Главное</a>
