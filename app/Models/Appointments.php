@@ -11,7 +11,8 @@ class Appointments extends Model
         'date',
         'time',
         'name',
-        'phone'
+        'phone',
+        
 
     ];
 

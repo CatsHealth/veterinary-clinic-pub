@@ -12,7 +12,8 @@ class AdminController extends Controller
         return view('admin.index');
     }
     public function service()
-    {$doctors = Doctor::all();
+    {
+        $doctors = Doctor::all();
         return view('admin.service',compact('doctors'));
     }
 

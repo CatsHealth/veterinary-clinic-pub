@@ -15,6 +15,7 @@ class Service extends Model
         'description',
         'isactive',
         'duration',
+        'filename'
 
     ];
 

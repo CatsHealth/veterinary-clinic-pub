@@ -1,7 +1,7 @@
 <div class="services-list">
     @foreach ($services as $service)  
         <div class="services-list-item">
-            <p> Название: {{$service->name}}</p>
+            <a href="{{ route('service.show', $service->id) }}"> Название: {{$service->name}}</a>
             <p> Описание:{{$service->caption}}</p>
         </div>
     @endforeach
