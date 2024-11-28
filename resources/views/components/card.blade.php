@@ -1,3 +1,4 @@
+<div class="conteiner">
 <div class="services-list">
     @foreach ($services as $service)  
         <div class="services-list-item">
@@ -5,4 +6,5 @@
             <p> Описание:{{$service->caption}}</p>
         </div>
     @endforeach
+</div>
 </div>

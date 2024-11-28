@@ -15,7 +15,6 @@
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1416px;
     margin: 0 auto;
 }
@@ -93,7 +92,7 @@
  
 /* Checked */
 .form_radio_btn input[type=radio]:checked + label {
-	background: #FFF600;
+	background: #FBD4DA;
     color: #353100;
     border: 1px solid #fff;
 }

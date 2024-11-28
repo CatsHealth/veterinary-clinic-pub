@@ -1,5 +1,6 @@
 <x-layout>
-
-<h1>Услуги</h1>
-@include('components.card')<!--Находиться в папке components-->
+    <div class="services-h1">
+        <h1>Услуги</h1>
+    </div>
+    @include('components.card')<!--Находиться в папке components-->
 </x-layout>
