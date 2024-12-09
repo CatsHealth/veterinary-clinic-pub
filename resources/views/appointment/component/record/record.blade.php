@@ -1,6 +1,7 @@
 @vite(['resources/views/appointment/component/record/record.css'])
 @vite(['resources/views/appointment/component/record/record.js'])
 
+
 <section class="appointment-section">
     <h2 class="appointment-title">Записаться</h2>
     <form action="{{ route('store') }}" method="POST" class="appointment-form" id="appointmentForm">
@@ -17,6 +18,7 @@
             </select>
 
         </div>
+        <div id="selected-service"></div>
 
         <div class="form-group">
             <label for="date" class="appointment-label">Выберите дату:</label>
