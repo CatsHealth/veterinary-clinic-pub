@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AppointController;
 use App\Http\Controllers\DoctorController;
@@ -20,6 +21,8 @@ Route::post('/store', [AppointController::class, 'store']) -> name('store');
 
 
 //Пути админа
+Route::get('/auth', [AuthController::class, 'index']) -> name('auth');
+Route::post('/auth/go', [AuthController::class, 'authenticate']) -> name('auth.go');
 
 Route::get('/admin', [AdminController::class, 'index']) -> name('admin');
 Route::get('/admin/service', [AdminController::class, 'service']) -> name('service');

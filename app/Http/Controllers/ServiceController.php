@@ -27,19 +27,20 @@ class ServiceController extends Controller
             'caption' => 'required|string|max:255',
             'recommendation' => 'nullable|string',
             'description' => 'nullable|string',
-            'filename' =>'required|image|mimes:jpeg, png, jpg, gif'
+            'filename' =>'required|image|mimes:jpeg,png,jpg,gif'
         ]);
 
-        $namefile = $request->id;
-            dd($namefile);
         // Загрузка файла
         if ($request->hasFile('filename')) {
             $file = $request->file('filename');
             $extension = $file->getClientOriginalExtension(); // Получаем оригинальное расширение
-            $file->move(public_path() . '/path', 'imgBy'.  $extension); // Сохраняем с правильным расширением
+            $timestamp = time();
+            $filename = 'Clinik_'. $timestamp. '.'.  $extension;
+            $file->move(public_path() . '/path', $filename); // Сохраняем с правильным расширением
         }
 
 
+       
         // Получаем список врачей из запроса
         $doctors = array_filter($request->all(), fn($key) => str_starts_with($key, 'doctor_'), ARRAY_FILTER_USE_KEY);
         $doctors = array_filter($doctors);
@@ -54,14 +55,12 @@ class ServiceController extends Controller
         }
     
         // Создание записи сервиса
-        $serviceData = $request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description');
-
+        $serviceData = array_merge($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'), ['filename' => $filename]);
         $service = Service::create($serviceData);
-        
+        dd($serviceData);
         // Привязываем врачей к сервису
         $service->doctors()->attach($doctors);
     
         return back();
     }
-    
 }
