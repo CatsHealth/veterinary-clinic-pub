@@ -6,6 +6,7 @@
 .appointment-title {
     text-align: center;
     font-size: 36px;
+    font-family: Montserrat;
 }
 .appointment-form {
     display: flex;
