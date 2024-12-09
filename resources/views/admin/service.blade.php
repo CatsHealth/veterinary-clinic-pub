@@ -1,6 +1,6 @@
 <x-layout>
     <x-admin>
-        <form class="service-form" action="{{ route('service.store') }}" method="POST">
+        <form class="service-form" action="{{ route('service.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
 
             <div class="form-group service-name">

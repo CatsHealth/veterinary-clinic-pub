@@ -27,10 +27,17 @@ class ServiceController extends Controller
             'caption' => 'required|string|max:255',
             'recommendation' => 'nullable|string',
             'description' => 'nullable|string',
+            'filename' =>'required|image|mimes:jpeg, png, jpg, gif'
         ]);
-    
+
+        $namefile = $request->id;
+            dd($namefile);
         // Загрузка файла
-        
+        if ($request->hasFile('filename')) {
+            $file = $request->file('filename');
+            $extension = $file->getClientOriginalExtension(); // Получаем оригинальное расширение
+            $file->move(public_path() . '/path', 'imgBy'.  $extension); // Сохраняем с правильным расширением
+        }
 
 
         // Получаем список врачей из запроса
