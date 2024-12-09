@@ -1,5 +1,3 @@
-<x-shell>
-    @include('components.header')
+<x-layout>
     @include('appointment.component.record.record')
-    @include('components.footer')
-</x-shell>
+</x-layout>

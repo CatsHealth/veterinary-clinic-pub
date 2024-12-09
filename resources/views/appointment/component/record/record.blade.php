@@ -1,6 +1,7 @@
 @vite(['resources/views/appointment/component/record/record.css'])
 @vite(['resources/views/appointment/component/record/record.js'])
 
+
 <section class="appointment-section">
     <h2 class="appointment-title">Записаться</h2>
     <form action="{{ route('store') }}" method="POST" class="appointment-form" id="appointmentForm">
@@ -14,6 +15,7 @@
                 @endforeach
             </select>
         </div>
+        <div id="selected-service"></div>
 
         <div class="form-group">
             <label for="date" class="appointment-label">Выберите дату:</label>
@@ -49,22 +51,3 @@
         <button type="submit" class="btn">Записаться</button>
     </form>
 </section>
-
-<script>
-    document.getElementById('id_service').addEventListener('change', function() {
-        const serviceId = this.value;
-        const form = document.getElementById('appointmentForm');
-        
-        // Создаем скрытое поле для передачи id услуги
-        const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'service_id';
-        hiddenInput.value = serviceId;
-
-        // Добавляем скрытое поле в форму
-        form.appendChild(hiddenInput);
-
-        // Отправляем форму
-        form.submit();
-    });
-</script>

@@ -1,15 +1,8 @@
-<div class="wrapper">
-    <div class="sidebar collapsed" id="sidebar">
-        <ul>
-            <li><a href="{{ route('service') }}">Услуги</a></li>
-            <li><a href="{{ route('doctors') }}">Доктора</a></li>
-            <li><a href="{{ route('admin') }}">Записи</a></li>
-        </ul>
-    </div>
-
-    <div class="content" id="content">
-        <button class="toggle-btn" id="toggle-btn">☰</button>
-
-        {{$slot}}
-    </div>
+<div class="sidebar">
+    <ul>
+        <li><a href="{{ route('service') }}" @if (request()->is('admin/service*')) class="selectid" @endif>Услуги</a></li>
+        <li><a href="{{ route('doctors') }}"@if (request()->is('admin/doctors*')) class="selectid" @endif>Доктора</a></li>
+        <li><a href="{{ route('admin') }}"@if (request()->is('admin')) class="selectid" @endif>Записи</a></li>
+    </ul>
 </div>
+{{$slot}}
