@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->text('description')->nullable();; //{{!!и норм будет выводиться!!}} погуглить 
             $table->boolean('isactive')->default(1);
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 

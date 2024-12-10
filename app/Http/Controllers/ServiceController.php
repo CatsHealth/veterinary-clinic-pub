@@ -13,6 +13,25 @@ class ServiceController extends Controller
     {   $services = Service::all();
         return view('services.index', compact('services'));
     }
+    public function adminIndex(Request $request)
+    {
+        // Получаем значение сортировки из запроса, по умолчанию 'asc'
+        $sortDirection = $request->input('sort', 'asc');
+    
+        // Проверка направления сортировки
+        if (!in_array($sortDirection, ['asc', 'desc'])) {
+            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        }
+    
+        // Получаем записи, отсортированные по имени
+        $services = Service::orderBy('name', $sortDirection)->get();
+        $doctors = Doctor::all(); // Получаем всех врачей для выпадающих списков
+    
+        // Возвращаем представление с данными
+        return view('admin.service', compact('services', 'sortDirection', 'doctors'));
+    }
+    
+    
     public function store(Request $request)
     {
         //dd($request->all());
@@ -41,5 +60,11 @@ class ServiceController extends Controller
         $service->doctors()->attach($doctors);
 
         return back();
+    }
+    public function destroy($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete(); // Мягкое удаление
+        return back()->with('success', 'Услуга успешно удалена.');
     }
 }

@@ -1,5 +1,47 @@
 <x-layout>
     <x-admin>
+        <h1>Список Услуг</h1>
+        <form method="GET" action="{{ route('admin.services.index') }}">
+            <label for="sort">Сортировка по названию:</label>
+            <select name="sort" id="sort" onchange="this.form.submit()">
+                <option value="asc" {{ isset($sortDirection) && $sortDirection === 'asc' ? 'selected' : '' }}>От А до Я</option>
+                <option value="desc" {{ isset($sortDirection) && $sortDirection === 'desc' ? 'selected' : '' }}>От Я до А</option>
+            </select>
+        </form>
+        
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Прайс</th>
+                    <th>Время</th>
+                    <th>Подпись</th>
+                    <th>Рекомендация</th>
+                    <th>Описание</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($services as $service)
+                    <tr>
+                        <td>{{ $service->name }}</td>
+                        <td>{{ $service->price }}</td>
+                        <td>{{ $service->duration }}</td>
+                        <td>{{ $service->caption }}</td>
+                        <td>{{ $service->recommendation }}</td>
+                        <td>{{ $service->description }}</td>
+                        <td>
+                            <form action="{{ route('service.destroy', $service->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn-delete" onclick="return confirm('Вы уверены, что хотите удалить эту услугу?')">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
         <form class="service-form" action="{{ route('service.store') }}" method="POST">
             @csrf
 
@@ -50,21 +92,9 @@
                 @enderror
             </div>
 
-
-    @error('doctor_2')
-        <div style="color: red;">{{ $message }}</div>
-    @enderror
-
-    <select id="doctor" name="doctor_3">
-        <option value="">Выберите врача</option>
-        @foreach($doctors as $doctor)
-            <option value="{{ $doctor->id }}" @if(old('doctor_3') == $doctor['id']) selected @endif>{{ $doctor->name }}</option>
-        @endforeach
-    </select>
-
             <div class="form-group service-price">
                 <label for="price">Цена:</label>
-                <input type="number" id="price" name="price"  min=0 class="service-price-input" required value="{{ old('price') }}" placeholder="Введите цену услуги">
+                <input type="number" id="price" name="price" min="0" class="service-price-input" required value="{{ old('price') }}" placeholder="Введите цену услуги">
                 @error('price')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -72,20 +102,7 @@
 
             <div class="form-group service-duration">
                 <label for="duration">Продолжительность:</label>
-                <input type="number" id="duration" name="duration"  min=0 class="service-duration-input" required value="{{ old('duration') }}" placeholder="Введите продолжительность услуги">
-
-            <div class="form-group service-price">
-                <label for="price">Цена:</label>
-                <input type="number" id="price" name="price" class="service-price-input" required value="{{ old('price') }}" placeholder="Введите цену услуги">
-                @error('price')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="form-group service-duration">
-                <label for="duration">Продолжительность:</label>
-                <input type="number" id="duration" name="duration" class="service-duration-input" required value="{{ old('duration') }}" placeholder="Введите продолжительность услуги">
-
+                <input type="number" id="duration" name="duration" min="0" class="service-duration-input" required value="{{ old('duration') }}" placeholder="Введите продолжительность услуги">
                 @error('duration')
                     <div class="error-message">{{ $message }}</div>
                 @enderror

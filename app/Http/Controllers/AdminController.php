@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointments;
 use App\Models\Doctor;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $appointments = Appointments::all();
+        return view('admin.index', compact('appointments'));
     }
     public function service()
     {$doctors = Doctor::all();
-        return view('admin.service',compact('doctors'));
+        $services = Service::all();
+        return view('admin.service',compact('doctors', 'services'));
     }
 
     public function doctors()
@@ -22,6 +26,10 @@ class AdminController extends Controller
         return view('admin.doctors', compact('doctors'));
     }
 
-    
+    public function appointments()
+    {
+        $appointments = Appointments::all();
+        return view('admin.appointments', compact('appointments'));
+    }
 
 }

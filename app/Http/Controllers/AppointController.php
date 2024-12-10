@@ -9,17 +9,33 @@ use Illuminate\Http\Request;
 
 class AppointController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $services = Service::all();
-        $appointments = Appointments::all();
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
-        $times = $this->getTimeIntervals(Service::first(), $appointments);
-        //dd($times);
-        return view('appointment/appointment', compact('services', 'dates', 'times'));
+        $times = $this->getTimeIntervals(Service::first(), Appointments::all());
 
-
+        return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
+
+    // Метод для отображения списка записей в админке
+    public function adminIndex(Request $request)
+    {
+        // Получаем значение сортировки из запроса, по умолчанию 'asc'
+        $sortDirection = $request->input('sort', 'asc'); 
+
+        // Проверка направления сортировки
+        if (!in_array($sortDirection, ['asc', 'desc'])) {
+            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        }
+
+        // Получаем записи, отсортированные по имени
+        $appointments = Appointments::orderBy('name', $sortDirection)->get();
+
+        // Возвращаем представление с данными
+        return view('admin.index', compact('appointments', 'sortDirection')); 
+    }
+
 
     public function store(Request $request)
     {
@@ -84,7 +100,13 @@ class AppointController extends Controller
         return $intervals;
     }
 
-
+    public function destroy($id)
+    {
+        $appointment = Appointments::findOrFail($id);
+        $appointment->delete(); // Мягкое удаление
+        return back()->with('success', 'Запись успешно удалена.');
+    }
+    
 
 }
 
