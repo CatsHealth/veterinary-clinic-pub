@@ -1,31 +1,39 @@
-.doctors{
+.clinic{
     margin-top: 100px;
 }
 
-.doctors h2{
+.clinic h2{
     color:#4e4e4e;
     font-size:55px;
     font-family:Montserrat Alternates;
     margin: 0;
+    text-align: center;
 }
 
-.doctor-name {
-    background-color: #FBD4DA;
-    width: 565px;
-    height: 131px;
+.clinic-photos{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 50px 0;
+    position: relative; 
+    z-index: 1; 
+}
+
+.clinic-photo{
+    display: grid;
+    margin-left: 50px;
+    gap: 30px;
+}
+
+.clinic-content-wrapper {
+    position: relative; 
+}
+
+.paws-background {
     position: absolute;
+    z-index: -1; /* Лапки под фотографиями */
+    top: 0;
+    right: 0;
+    margin-right: 280px;
 }
 
-.doctor-name h3{
-    color:#4e4e4e;
-    font-size:24px;
-    font-family:Montserrat Alternates;
-    margin-left: 30px;
-}
 
-.doctor-name h4{
-    color:#4e4e4e;
-    font-size:20px;
-    font-family:Montserrat;
-    margin-left: 30px;
-}
