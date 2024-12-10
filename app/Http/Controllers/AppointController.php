@@ -85,7 +85,7 @@ class AppointController extends Controller
                 $intervals[] = $currentTime; 
             }
             
-            // Увеличиваем время на длительность
+            // Увеличиваем время на длxzительность
             $from->modify("+{$duration} minutes");
         }
     
