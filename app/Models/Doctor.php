@@ -29,4 +29,9 @@ class Doctor extends Model
     {
         return $this->hasMany(DayOff::class);
     }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'doctor_service', 'doctor_id', 'service_id');
+    }
 }
