@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('specialization');
             $table->string('phone');
-            $table->string('login')->unique(); // Добавьте уникальность для логина
-            $table->string('password');
             $table->integer('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();

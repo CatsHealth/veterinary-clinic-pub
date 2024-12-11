@@ -17,7 +17,6 @@
                     <th>Специализация</th>
                     <th>Телефон</th>
                     <th>Логин</th>
-                    <th>Пароль</th>
                     <th>Актив</th>
                     <th>Действия</th>
                 </tr>
@@ -28,8 +27,7 @@
                         <td>{{ $doctor->name }}</td> 
                         <td>{{ $doctor->specialization }}</td>
                         <td>{{ $doctor->phone }}</td> 
-                        <td>{{ $doctor->login }}</td>
-                        <td>{{ $doctor->password }}</td> 
+                        <td>{{ $doctor->user->email ?? 'Нет логина' }}</td>
                         <td>{{ $doctor->is_active ? 'Да' : 'Нет' }}</td> 
                         <td>
                             <form action="{{ route('doctors.destroy', $doctor->id) }}" method="POST" style="display:inline;">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -17,7 +18,9 @@ class DoctorController extends Controller
         }
 
         // Получаем всех врачей, отсортированных по ФИО
-        $doctors = Doctor::orderBy('name', $sortDirection)->get();
+        $doctors = Doctor::with('user')
+        ->orderBy('name', $sortDirection)
+        ->get();
         
         return view('admin.doctors', data: compact('doctors', 'sortDirection'));
     }
@@ -29,15 +32,38 @@ class DoctorController extends Controller
             'specialization' => 'nullable|string',
             'phone' => 'required',
         ]);
+            // Создаем нового доктора
+          $doctor = Doctor::create([
+                'name' => $request->name,
+                'specialization' => $request->specialization,
+                'phone' => $request->phone,
+                'login' => $request->login,
+                'password' => bcrypt($request->password), // Шифруем пароль
+                'is_active' => true, // или любое другое значение по умолчанию
+            ]);
+            
+    $doctor = Doctor::where('phone', $request->phone)->first();
+    User::create([
+        'name' => $doctor->name,
+        'email' => $request->login, 
+        'password' => bcrypt($request->password),
+        'doctor_id' => $doctor->id,
+    ]);
+    
+        return back()->with('success', 'Доктор и пользовательский аккаунт успешно созданы');
+    }
+    
 
-        Doctor::create($request->all());
-        return back();
-    }
     public function destroy($id)
-    {
-        $doctor = Doctor::findOrFail($id);
-        $doctor->delete(); // Мягкое удаление
-        return back()->with('success', 'Доктор успешно удалён.');
+{
+    $doctor = Doctor::findOrFail($id);
+    $user = User::where('doctor_id', $doctor->id)->first();
+    if ($user) {
+        $user->delete(); 
     }
+    $doctor->delete(); 
+    return back()->with('success', 'Доктор и его пользовательский аккаунт успешно удалены.');
+}
+
     
 }
