@@ -16,12 +16,13 @@
     margin: 50px 0 50px 0;
     position: relative; 
     z-index: 1; 
+    max-height: 424px; 
 }
 
-.clinic-photo{
+.clinic-thumbnails{
     display: grid;
     margin-left: 50px;
-    gap: 30px;
+    gap: 18px;
 }
 
 .clinic-content-wrapper {
@@ -30,10 +31,13 @@
 
 .paws-background {
     position: absolute;
-    z-index: -1; /* Лапки под фотографиями */
+    z-index: -1;
     top: 0;
     right: 0;
-    margin-right: 280px;
+    margin-right: 100px;
 }
+
+
+  
 
 

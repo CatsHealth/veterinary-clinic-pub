@@ -8,15 +8,15 @@
                 <h3>Контакты</h3>
                 <div class="tel">
                     <img src="{{ asset('img/tel.svg') }}" alt="tel" />
-                    <p>+7 (800) 555-00-55</p>
+                    <a href="tel">+7 (800) 555-00-55</a>
                 </div>
                 <div class="email-box">
                     <img src="{{ asset('img/mail.svg') }}" alt="tel" />
-                    <p>info@catsclinik.ru</p>
+                    <a href="email">info@catsclinik.ru</a>
                 </div>
                 <div class="adres">
                     <img src="{{ asset('img/adres.svg') }}" alt="adres" />
-                    <p>ул. Ленина, 123</p>
+                    <a href="adres">ул. Ленина, 123</a>
                 </div>
             </div>
             <nav class="footer-nav">

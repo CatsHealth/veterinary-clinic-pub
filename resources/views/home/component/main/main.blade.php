@@ -2,7 +2,11 @@
 <section>
     <div class="banner">
         <div class="container">
+            <div class="banner-paws">
+                    <img src="{{ asset('img/paws-main.png') }}" alt="Veterinary Clinic">
+                </div>
             <div class="banner-content">
+            
                 <div class="banner-text">
                     <h1>Ветеринарная клиника для вашего питомца</h1>
                     <p>Расскажите о вашем питомце, и мы подберем подходящих специалистов</p>
@@ -26,9 +30,6 @@
                 </div>
                 <div class="banner-image">
                     <img src="{{ asset('img/banner.png') }}" alt="Veterinary Clinic">
-                </div>
-                <div class="banner-paws">
-                    <img src="{{ asset('img/paws.png') }}" alt="Veterinary Clinic">
                 </div>
             </div>
         </div>

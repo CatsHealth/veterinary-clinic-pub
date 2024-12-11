@@ -5,6 +5,7 @@
 .banner-content  {
     display: flex;
     justify-content: center;
+    margin-top: -550px;
 }
 .banner-text h1 {
     color:#5A5A5A;
@@ -22,18 +23,20 @@
 }
 
 .banner-image {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .banner-paws {
-    position: relative;
-    z-index: 1;
-    margin-left: -200px; /* Например, смещение по вертикали */
-  }
+    border-radius: 250px 250px 0 0;
+    width: 375px;
+    height: 537px;
+    background: #f6a8b5;
+}
 
-.banner-paws img{
-    margin-right: -100px;
+.banner-image img{
+    height: 484px;
+    margin-top: 53px;
+    text-align: center;
+}
+  
+.banner-paws {
+    margin-left: -200px; 
 }
 
 
