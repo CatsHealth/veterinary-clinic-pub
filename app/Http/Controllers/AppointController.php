@@ -18,23 +18,46 @@ class AppointController extends Controller
         return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
 
-    // Метод для отображения списка записей в админке
+ 
     public function adminIndex(Request $request)
     {
-        // Получаем значение сортировки из запроса, по умолчанию 'asc'
-        $sortDirection = $request->input('sort', 'asc'); 
+        $sort = $request->input('sort');
 
-        // Проверка направления сортировки
-        if (!in_array($sortDirection, ['asc', 'desc'])) {
-            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        // Определяем порядок сортировки по умолчанию
+        $orderBy = 'name'; // Поле, по которому будет происходить сортировка (например, 'name')
+        $direction = 'asc'; // Направление сортировки по умолчанию
+
+        // Устанавливаем параметры сортировки в зависимости от значения sort
+        switch ($sort) {
+            case 'asc':
+                $orderBy = 'name'; // Сортировка по имени
+                $direction = 'asc';
+                break;
+            case 'desc':
+                $orderBy = 'name'; // Сортировка по имени
+                $direction = 'desc';
+                break;
+            case 'newest':
+                $orderBy = 'created_at'; // Сортировка по дате создания
+                $direction = 'desc';
+                break;
+            case 'oldest':
+                $orderBy = 'created_at'; // Сортировка по дате создания
+                $direction = 'asc';
+                break;
+            default:
+                $orderBy = 'name'; // Значение по умолчанию
+                $direction = 'asc';
+                break;
         }
 
-        // Получаем записи, отсортированные по имени
-        $appointments = Appointments::orderBy('name', $sortDirection)->get();
+        // Получаем данные с учетом сортировки
+        $appointments = Appointments::orderBy($orderBy, $direction)->get();
 
         // Возвращаем представление с данными
-        return view('admin.index', compact('appointments', 'sortDirection')); 
+        return view('admin.index', compact('appointments', 'sort'));
     }
+
     public function update(Request $request, $id)
     {
         $request->validate([
