@@ -16,14 +16,15 @@ class Doctor extends Model
         'name',
         'specialization',
         'phone',
-        'login',
-        'password',
         'is_active',
         
     ];
   
     protected $dates = ['deleted_at'];
-
+    public function user()
+    {
+        return $this->hasOne(User::class); // Один доктор связан с одним пользователем
+    }
     public function dayoffs(): HasMany
     {
         return $this->hasMany(DayOff::class);
