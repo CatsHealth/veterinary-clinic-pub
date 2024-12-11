@@ -13,23 +13,48 @@ class ServiceController extends Controller
     {   $services = Service::all();
         return view('services.index', compact('services'));
     }
+
+
     public function adminIndex(Request $request)
     {
-        // Получаем значение сортировки из запроса, по умолчанию 'asc'
-        $sortDirection = $request->input('sort', 'asc');
+        $sort = $request->input('sort');
     
-        // Проверка направления сортировки
-        if (!in_array($sortDirection, ['asc', 'desc'])) {
-            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        // Определяем порядок сортировки по умолчанию
+        $orderBy = 'name'; // Поле, по которому будет происходить сортировка (например, 'name')
+        $direction = 'asc'; // Направление сортировки по умолчанию
+    
+        // Устанавливаем параметры сортировки в зависимости от значения sort
+        switch ($sort) {
+            case 'asc':
+                $direction = 'asc';
+                break;
+            case 'desc':
+                $direction = 'desc';
+                break;
+            case 'newest':
+                $orderBy = 'created_at'; // или другое поле, показывающее дату создания
+                $direction = 'desc';
+                break;
+            case 'oldest':
+                $orderBy = 'created_at'; // или другое поле, показывающее дату создания
+                $direction = 'asc';
+                break;
+            default:
+                $direction = 'asc'; // Значение по умолчанию
+                break;
         }
     
-        // Получаем записи, отсортированные по имени
-        $services = Service::orderBy('name', $sortDirection)->get();
-        $doctors = Doctor::all(); // Получаем всех врачей для выпадающих списков
+        // Пример того, как получить данные (подразумевается, что у вас есть модель Service)
+        $services = Service::orderBy($orderBy, $direction)->get();
+        $doctors = Doctor::all();
+    
+        // Определяем переменную $sortDirection
+        $sortDirection = $direction; // Теперь у нас есть переменная для сортировки
     
         // Возвращаем представление с данными
         return view('admin.service', compact('services', 'sortDirection', 'doctors'));
     }
+    
     
     
 
@@ -92,22 +117,31 @@ class ServiceController extends Controller
     }
 
 
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required|string|max:100',
-        'price' => 'required|numeric',
-        'duration' => 'required|integer',
-        'caption' => 'required|string|max:255',
-        'recommendation' => 'nullable|string',
-        'description' => 'nullable|string',
-    ]);
-
-    $service = Service::findOrFail($id);
-    $service->update($request->all());
-
-    return back()->with('success', 'Услуга успешно обновлена.');
-}
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'price' => 'required|numeric',
+            'duration' => 'required|integer',
+            'caption' => 'required|string|max:255',
+            'recommendation' => 'nullable|string',
+            'description' => 'nullable|string',
+            'doctors' => 'required|array',
+            'doctors.*' => 'exists:doctors,id',
+        ]);
+    
+        $service = Service::findOrFail($id);
+        
+        // Обновляем данные сервиса
+        $service->update($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'));
+    
+        // Обновляем связанные врачи
+        $doctors = $request->input('doctors');
+        $service->doctors()->sync($doctors);
+    
+        return back()->with('success', 'Услуга успешно обновлена.');
+    }
+    
 
 
 }
