@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('recommendation');
             $table->text('description')->nullable();; //{{!!и норм будет выводиться!!}} погуглить 
             $table->boolean('isactive')->default(1);
+            $table->string('filename')->default(404);
             $table->timestamps();
             $table->softDeletes();
         });

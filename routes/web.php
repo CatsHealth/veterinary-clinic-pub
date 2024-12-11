@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AppointController;
 use App\Http\Controllers\DoctorController;
@@ -12,21 +13,26 @@ Route::get('/', [HomeController::class, 'index']) -> name('app');
 //Пути пользователя
 
 Route::get('/services', [ServiceController::class, 'index']) -> name('services');
+Route::get('/services/{id}', [ServiceController::class, 'show']) -> name('service.show');
 Route::get('/appointment', [AppointController::class, 'index']) -> name('appointment');
-
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
-
 //Формы пользователя
 
 Route::post('/store', [AppointController::class, 'store']) -> name('store');
 
+
 //Пути админа
+Route::get('/auth', [AuthController::class, 'index']) -> name('auth');
+Route::post('/auth/go', [AuthController::class, 'authenticate']) -> name('auth.go');
 
 Route::get('/admin', [AdminController::class, 'index']) -> name('admin');
 Route::get('/admin/service', [AdminController::class, 'service']) -> name('service');
 Route::get('/admin/doctors', [AdminController::class, 'doctors']) -> name('doctors');
 Route::get('//admin/index', [AppointController::class, 'store'])->name('appointments.store');
 
+
+//Route::get('/api/dates/{serviceId}/{data}', [AppointController::class, 'getAllDatesInMonth']);
+Route::get('/api/get-available-times ', [AppointController::class, 'getAvailableTimes']) -> name ('getTimeIntervals');
 
 //Формы админа
 

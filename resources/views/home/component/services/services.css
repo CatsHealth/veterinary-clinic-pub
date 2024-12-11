@@ -5,6 +5,7 @@
 .services-content{
     display: flex;
     justify-content: space-around;
+    position: relative;
 }
 
 .services-text h2 {
@@ -19,4 +20,47 @@
     font-size:16px;
     font-family:Montserrat;
     max-width: 436px;
+}
+
+.services-btn{
+    text-align: end;
+}
+
+.services-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 1000px;
+}
+
+.services-list-item{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f6a8b5;
+    width: 346px;
+    margin: 0 40px 40px 0;
+}
+
+.service-name{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.service-caption{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+}
+
+.services-image {
+    position: absolute;
+    z-index: -1; 
+    top: 0;
+    left: 0;
+}
+
+.services-image img{
+    margin-top: -130px;
 }

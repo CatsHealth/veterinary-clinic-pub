@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function index(){
         $reviews = Review::all(); 
         $services = Service::take(5)->get();
+
         return view('home/home', compact('reviews', 'services'));
 
     }

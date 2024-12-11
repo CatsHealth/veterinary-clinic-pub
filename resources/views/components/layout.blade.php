@@ -10,14 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>CatsClinik</title>
-    @vite(['resources/css/app.css', 'resources/js/sidebar.js', 'resources/css/admin.css'])
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+    </style>
+    <!-- swiper-->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- swiper-->
+    @vite(['resources/css/app.css', 'resources/css/admin.css'])
 </head>
 <body>
     <header>
         <div class="header_conteiner conteiner">
             <div class="row">
                 <div class="logo">
-                    <a href="{{ route('app') }}"><img src="{{ asset('img/left.svg') }}" alt="Logo" /></a>
+                    <a href="{{ route('app') }}"><img src="{{ asset('img/logo.svg') }}" alt="Logo" /></a>
                 </div>
                 <nav class="nav">
                     <a href="{{ route('app') }}" @if (request()->is('/')) class="selectid" @endif>Главное</a>
@@ -28,14 +39,15 @@
             </div>
         </div>
     </header>
+
     {{$slot}}
+    
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="map">
                 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acedf0aea8be923fd339b5e3f01db97b4c78706e1a6be5090bcb4b0518a596f40&amp;width=430&amp;height=270&amp;lang=ru_RU&amp;scroll=true"></script>
                 </div>
-
                 <div class="footer-info">
                     <h3>Контакты</h3>
                     <div class="tel">
@@ -51,7 +63,6 @@
                         <p>ул. Ленина, 123</p>
                     </div>
                 </div>
-
                 <nav class="footer-nav">
                     <a href="{{route('app')}}">Главное</a>
                     <a href="{{route('services')}}">Услуги</a>
@@ -64,6 +75,6 @@
             </div>
         </div>
     </footer>
-    
+
 </body>
 </html>

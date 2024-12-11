@@ -27,6 +27,9 @@
                 <div class="banner-image">
                     <img src="{{ asset('img/banner.png') }}" alt="Veterinary Clinic">
                 </div>
+                <div class="banner-paws">
+                    <img src="{{ asset('img/paws.png') }}" alt="Veterinary Clinic">
+                </div>
             </div>
         </div>
     </div>

@@ -24,9 +24,7 @@ a:hover {
 }
 /*.общие*/
 /*header*/
-.header_conteiner {
-    max-width: 1416px;   
-    width: 100%;         
+.header_conteiner {       
     margin: 0 auto;       
     padding: 0 0;   
 }
@@ -142,13 +140,18 @@ footer{
 }
 .tel{
     display: flex;
-    
+    align-items: flex-end;
+    margin-top: 10px;
 }
 .email-box{
     display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
 }
 .adres{
     display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
 }
 .footer-nav a{
     color:#6e6e6e;
@@ -166,3 +169,67 @@ footer{
     font-family:Montserrat;
     text-align: center;
 }
+
+.services-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.services-list-item{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f6a8b5;
+    width: 220px;
+    margin: 0 40px 40px 0;
+}
+
+.conteiner{
+    margin: 0 140px;
+}
+
+.services-h1 h1{
+    margin: 50px 140px 50px 140px;
+    font-size: 36px;
+    color: #4e4e4e;
+    font-family: Montserrat;
+}
+
+.service-name{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.service-caption{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+}
+
+
+.service h1{
+    font-size: 36px;
+    color: #4e4e4e;
+    margin: 50px 0 20px 0;
+}
+
+.service-content{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.service-info p{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+    max-width: 900px;
+    text-align: justify;
+}
+
+.service-img{
+    margin: 15px 0 0 50px;
+}
+

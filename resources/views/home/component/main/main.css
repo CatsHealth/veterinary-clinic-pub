@@ -1,12 +1,17 @@
+.banner {
+    margin-top: 50px;
+}
+
 .banner-content  {
     display: flex;
     justify-content: center;
 }
 .banner-text h1 {
     color:#5A5A5A;
-    font-size:64px;
-    font-family: "Golos Text", sans-serif;
+    font-family: Montserrat;
     font-weight: 700;
+    font-size: 85px;
+    color: #4e4e4e;
 }
 .banner-text p{
     font-size:20px;
@@ -14,6 +19,21 @@
 }
 .btn-main{
     margin-right: auto;
+}
+
+.banner-image {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .banner-paws {
+    position: relative;
+    z-index: 1;
+    margin-left: -200px; /* Например, смещение по вертикали */
+  }
+
+.banner-paws img{
+    margin-right: -100px;
 }
 
 

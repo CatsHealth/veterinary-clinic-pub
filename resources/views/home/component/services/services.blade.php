@@ -7,12 +7,15 @@
                     <h2>Услуги</h2>
                     <p>Общие осмотры и профилактика: Регулярные осмотры помогут выявить проблемы на ранних стадиях.</p>
                 </div>
+                <div class="services-image">
+                    <img src="{{asset('/img/paws-services.png')}}">
+                </div>
                 <div class="services-list">
 
                     @foreach ($services as $service)  
                           <div class="services-list-item">
-                                <p> {{$service->name}}</p>
-                                <p> {{$service->caption}}</p>
+                                <p class="service-name"> {{$service->name}}</p>
+                                <p class="service-caption"> {{$service->caption}}</p>
                             </div>
                     @endforeach
 
