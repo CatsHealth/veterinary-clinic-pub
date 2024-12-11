@@ -16,8 +16,10 @@ class AdminController extends Controller
     }
     public function service()
 
-    {$doctors = Doctor::all();
-        $services = Service::all();
+    {   $doctors = Doctor::all();
+        $services = Service::with('doctors')->get();
+        
+
         return view('admin.service',compact('doctors', 'services'));
 
     }
