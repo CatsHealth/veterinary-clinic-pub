@@ -5,24 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Doctor extends Model
+class Review extends Model
 {
 
-    use SoftDeletes;
 
     protected $fillable = [
         'name',
-        'specialization',
-        'phone',
-        'login',
-        'password',
-        'is_active',
-        
+        'text',
+        'photo',
     ];
-  
-    protected $dates = ['deleted_at'];
+    
 
     public function dayoffs(): HasMany
     {

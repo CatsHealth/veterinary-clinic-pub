@@ -9,15 +9,48 @@ use Illuminate\Http\Request;
 
 class AppointController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $services = Service::all();
-       
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
-        $times = $this->getTimeIntervals(2,  '2024-12-15');
-        //dd($times);
-        return view('appointment/appointment', compact('services', 'dates', 'times'));
+        $times = $this->getTimeIntervals(Service::first(), Appointments::all());
+
+        return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
+
+    // Метод для отображения списка записей в админке
+    public function adminIndex(Request $request)
+    {
+        // Получаем значение сортировки из запроса, по умолчанию 'asc'
+        $sortDirection = $request->input('sort', 'asc'); 
+
+        // Проверка направления сортировки
+        if (!in_array($sortDirection, ['asc', 'desc'])) {
+            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        }
+
+        // Получаем записи, отсортированные по имени
+        $appointments = Appointments::orderBy('name', $sortDirection)->get();
+
+        // Возвращаем представление с данными
+        return view('admin.index', compact('appointments', 'sortDirection')); 
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:15',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            
+        ]);
+    
+        $appointment = Appointments::findOrFail($id);
+        $appointment->update($request->all()); // Это обновит все поля, включая service_id
+    
+        return back()->with('success', 'Запись успешно обновлена.');
+    }
+    
 
 
     public function store(Request $request)
@@ -92,12 +125,22 @@ class AppointController extends Controller
         return $intervals;
     }
 
+
+    public function destroy($id)
+    {
+        $appointment = Appointments::findOrFail($id);
+        $appointment->delete(); // Мягкое удаление
+        return back()->with('success', 'Запись успешно удалена.');
+    }
+    
+
     public function getAvailableTimes(Request $request)
 {
     $service_id = $request->input('service_id');
     $date =$request->input('date');
 
     $intervals = $this->getTimeIntervals($service_id, $date);
+
 
     return response()->json($intervals);
 }
