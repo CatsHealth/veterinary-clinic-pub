@@ -13,10 +13,31 @@ class ServiceController extends Controller
     {   $services = Service::all();
         return view('services.index', compact('services'));
     }
+    public function adminIndex(Request $request)
+    {
+        // Получаем значение сортировки из запроса, по умолчанию 'asc'
+        $sortDirection = $request->input('sort', 'asc');
+    
+        // Проверка направления сортировки
+        if (!in_array($sortDirection, ['asc', 'desc'])) {
+            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        }
+    
+        // Получаем записи, отсортированные по имени
+        $services = Service::orderBy('name', $sortDirection)->get();
+        $doctors = Doctor::all(); // Получаем всех врачей для выпадающих списков
+    
+        // Возвращаем представление с данными
+        return view('admin.service', compact('services', 'sortDirection', 'doctors'));
+    }
+    
+    
+
     public function show($id)
     {   $service = Service::find($id);
         return view('services.show', compact('service'));
     }
+  
     public function store(Request $request)
     {
         // Валидация входящих данных
@@ -63,4 +84,30 @@ class ServiceController extends Controller
     
         return back();
     }
+    public function destroy($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete(); // Мягкое удаление
+        return back()->with('success', 'Услуга успешно удалена.');
+    }
+
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:100',
+        'price' => 'required|numeric',
+        'duration' => 'required|integer',
+        'caption' => 'required|string|max:255',
+        'recommendation' => 'nullable|string',
+        'description' => 'nullable|string',
+    ]);
+
+    $service = Service::findOrFail($id);
+    $service->update($request->all());
+
+    return back()->with('success', 'Услуга успешно обновлена.');
+}
+
+
 }

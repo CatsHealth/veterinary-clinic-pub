@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->boolean('isactive')->default(1);
             $table->string('filename')->default(404);
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 
