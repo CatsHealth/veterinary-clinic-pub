@@ -67,4 +67,24 @@ class ServiceController extends Controller
         $service->delete(); // Мягкое удаление
         return back()->with('success', 'Услуга успешно удалена.');
     }
+
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:100',
+        'price' => 'required|numeric',
+        'duration' => 'required|integer',
+        'caption' => 'required|string|max:255',
+        'recommendation' => 'nullable|string',
+        'description' => 'nullable|string',
+    ]);
+
+    $service = Service::findOrFail($id);
+    $service->update($request->all());
+
+    return back()->with('success', 'Услуга успешно обновлена.');
+}
+
+
 }

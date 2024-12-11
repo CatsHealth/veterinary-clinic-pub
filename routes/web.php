@@ -46,4 +46,6 @@ Route::post('//admin/index', [AppointController::class, 'adminIndex'])->name('ad
 Route::get('/admin/services', action: [ServiceController::class, 'adminIndex'])->name('admin.services.index');
 Route::post('/admin/services', action: [ServiceController::class, 'adminIndex'])->name('admin.service.index');
 
+Route::put('/admin/service/{id}', [ServiceController::class, 'update'])->name('service.update');
 
+Route::put('//admin/index/{id}', [AppointController::class, 'update'])->name('appointments.update');

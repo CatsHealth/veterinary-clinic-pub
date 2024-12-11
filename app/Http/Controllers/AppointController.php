@@ -35,7 +35,22 @@ class AppointController extends Controller
         // Возвращаем представление с данными
         return view('admin.index', compact('appointments', 'sortDirection')); 
     }
-
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:15',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            
+        ]);
+    
+        $appointment = Appointments::findOrFail($id);
+        $appointment->update($request->all()); // Это обновит все поля, включая service_id
+    
+        return back()->with('success', 'Запись успешно обновлена.');
+    }
+    
 
     public function store(Request $request)
     {
