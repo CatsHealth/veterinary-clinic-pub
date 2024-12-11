@@ -1,38 +1,41 @@
-
 <x-layout>
     <x-admin>
         <h1>Список Услуг</h1>
-        <form method="GET" action="{{ route('admin.services.index') }}">
-            <label for="sort">Сортировка по названию:</label>
-            <select name="sort" id="sort" onchange="this.form.submit()">
-                <option value="asc" {{ isset($sortDirection) && $sortDirection === 'asc' ? 'selected' : '' }}>От А до Я</option>
-                <option value="desc" {{ isset($sortDirection) && $sortDirection === 'desc' ? 'selected' : '' }}>От Я до А</option>
-            </select>
-        </form>
+
+     
+
+        <div class="sorting-buttons">
+            <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
+                <button type="submit" name="sort" value="asc" class="btn-sort">От А до Я</button>
+            </form>
+            <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
+                <button type="submit" name="sort" value="desc" class="btn-sort">От Я до А</button>
+            </form>
+            <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
+                <button type="submit" name="sort" value="newest" class="btn-sort">От новых к старым</button>
+            </form>
+            <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
+                <button type="submit" name="sort" value="oldest" class="btn-sort">От старых к новым</button>
+            </form>
+        </div>
         
-        <table class="services-table">
+         <table class="services-table">
             <thead>
                 <tr>
-                    <th>Название</th>
-                    <th>Прайс</th>
-                    <th>Время</th>
-                    <th>Подпись</th>
-                    <th>Рекомендация</th>
-                    <th>Описание</th>
+                    <th>Услуга</th>
+                    <th>Врач</th>
+                    <th>Цена</th>
                     <th>Действия</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($services as $service)
                     <tr>
-                        <td>{{ $service->name }}</td>
+                        <td>{{ $service->name }}</td> 
+                        <td>{{ $service->doctor ? $service->doctor->name : 'Не указано' }}</td>
                         <td>{{ $service->price }}</td>
-                        <td>{{ $service->duration }}</td>
-                        <td>{{ $service->caption }}</td>
-                        <td>{{ $service->recommendation }}</td>
-                        <td>{{ $service->description }}</td>
                         <td>
-                            <button type="button" class="btn-edit" onclick="openEditServiceModal({{ $service->id }}, '{{ addslashes($service->name) }}', {{ $service->price }}, {{ $service->duration }}, '{{ addslashes($service->caption) }}', '{{ addslashes($service->recommendation) }}', '{{ addslashes($service->description) }}')">Изменить</button>
+                            <button type="button" class="btn-edit" onclick="openEditServiceModal({{ $service->id }}, '{{ addslashes($service->name) }}', {{ $service->price }}, {{ $service->duration }}, '{{ addslashes($service->caption) }}', '{{ addslashes($service->recommendation) }}', '{{ addslashes($service->description) }}', {{ $service->doctor ? $service->doctor->id : 'null' }})">Изменить</button>
                         </td>
                         <td>
                             <form action="{{ route('service.destroy', $service->id) }}" method="POST" style="display:inline;">
@@ -59,6 +62,19 @@
                         <label for="edit_name">Название:</label>
                         <input type="text" id="edit_name" name="name" class="service-name-input" required maxlength="100" placeholder="Введите название услуги">
                         @error('name')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
+        
+                    <div class="form-group service-doctor">
+                        <label for="edit_doctor">Врач:</label>
+                        <select id="edit_doctor" name="doctor_id" class="service-doctor-select" required>
+                            <option value="">Выберите врача</option>
+                            @foreach($doctors as $doctor)
+                                <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('doctor_id')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
@@ -179,7 +195,7 @@
         </x-layout>
         
         <script>
-function openEditServiceModal(id, name, price, duration, caption, recommendation, description) {
+function openEditServiceModal(id, name, price, duration, caption, recommendation, description, doctorId) {
     document.getElementById('edit_service_id').value = id;
     document.getElementById('edit_name').value = name;
     document.getElementById('edit_price').value = price;
@@ -187,11 +203,14 @@ function openEditServiceModal(id, name, price, duration, caption, recommendation
     document.getElementById('edit_caption').value = caption;
     document.getElementById('edit_recommendation').value = recommendation;
     document.getElementById('edit_description').value = description;
+    
+    // Установите выбранного врача
+    document.getElementById('edit_doctor').value = doctorId;
 
     document.getElementById('editServiceModal').style.display = 'block';
     document.getElementById('editServiceForm').action = "{{ route('service.update', '') }}" + '/' + id;
-
 }
+
 
 function closeEditModal() {
     document.getElementById('editServiceModal').style.display = 'none';
