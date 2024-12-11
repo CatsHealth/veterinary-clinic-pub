@@ -6,11 +6,15 @@ use DateTime;
 use App\Models\Appointments;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\AppointmentTrait;
 
 class AppointController extends Controller
-{
+{  
+    use AppointmentTrait;
     public function index(Request $request)
     {
+        
+
         $services = Service::all();
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
         $times = $this->getTimeIntervals(3, Appointments::all());
@@ -93,24 +97,7 @@ class AppointController extends Controller
         return back();
     }
 
-    public function getAllDatesInMonth($month, $year)
-    {
-        // Определяем количество дней в месяце
-        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-        $dates = [];
-        // $date->setDate($year, $month, 1);
-        //dump($daysInMonth);
-        for ($date = (new DateTime())->modify("first day of"); $date->format("m") == $month; $date->modify('+1 day')) {
-            $dates[] = $date->format('Y-m-d');
-        }
-        // Заполняем массив датами
-        //for ($day = 1; $day <= $daysInMonth; $day++) {
-        //    $dates[] = sprintf('%02d.%02d',   $day,$month); // Форматируем дату
-        //}
-
-        return $dates;
-    }
-
+    
     public function getTimeIntervals($service_id, $date)
     {
         $service = Service::find($service_id);
@@ -148,12 +135,7 @@ class AppointController extends Controller
         return $intervals;
     }
 
-    public function destroy($id)
-    {
-        $appointment = Appointments::findOrFail($id);
-        $appointment->delete(); // Мягкое удаление
-        return back()->with('success', 'Запись успешно удалена.');
-    }
+    
     
 
     public function getAvailableTimes(Request $request)
@@ -166,6 +148,13 @@ class AppointController extends Controller
 
     return response()->json($intervals);
 }
+
+public function destroy($id)
+    {
+        $appointment = Appointments::findOrFail($id);
+        $appointment->delete(); // Мягкое удаление
+        return back()->with('success', 'Запись успешно удалена.');
+    }
     
 }
 

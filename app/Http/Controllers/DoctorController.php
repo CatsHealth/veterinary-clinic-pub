@@ -41,7 +41,7 @@ class DoctorController extends Controller
 
         // Получаем всех врачей, отсортированных по ФИО
         $doctors = Doctor::with('user')
-        ->orderBy('name', $sortDirection)
+        ->orderBy('name', $direction)
         ->get();
 
         return view('admin.doctors', data: compact('doctors', 'sort'));

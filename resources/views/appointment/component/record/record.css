@@ -108,3 +108,10 @@
 	background: #efefef;
 	color: #666;
 }
+
+.appointment-radio:disabled + .appointment-label-radio {
+    background-color: #f0f0f0;
+    color: #ccc;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
