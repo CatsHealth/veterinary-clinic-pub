@@ -13,7 +13,7 @@ class AppointController extends Controller
     {
         $services = Service::all();
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
-        $times = $this->getTimeIntervals(Service::first(), Appointments::all());
+        $times = $this->getTimeIntervals(3, Appointments::all());
 
         return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
@@ -124,7 +124,6 @@ class AppointController extends Controller
     
         return $intervals;
     }
-
 
     public function destroy($id)
     {
