@@ -75,7 +75,6 @@ class ServiceController extends Controller
             'description' => 'nullable|string',
             'filename' =>'required|image|mimes:jpeg,png,jpg,gif'
         ]);
-
         // Загрузка файла
         if ($request->hasFile('filename')) {
             $file = $request->file('filename');
@@ -91,7 +90,7 @@ class ServiceController extends Controller
         $doctors = array_filter($request->all(), fn($key) => str_starts_with($key, 'doctor_'), ARRAY_FILTER_USE_KEY);
         $doctors = array_filter($doctors);
         $doctors = array_unique($doctors);
-    
+     
         // Проверка на наличие врачей в таблице врачи
         $doctorsBD = Doctor::pluck('id')->toArray();
         foreach ($doctors as $key => $doc) {
@@ -99,11 +98,11 @@ class ServiceController extends Controller
                 throw ValidationException::withMessages(["doctor_$key" => ['Такой врач больше не существует']]);
             }
         }
-    
+       
+
         // Создание записи сервиса
         $serviceData = array_merge($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'), ['filename' => $filename]);
         $service = Service::create($serviceData);
-        dd($serviceData);
         // Привязываем врачей к сервису
         $service->doctors()->attach($doctors);
     
