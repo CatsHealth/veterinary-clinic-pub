@@ -47,12 +47,17 @@ Route::resource('service', ServiceController::class);
 
 Route::resource('doctors', DoctorController::class);
 
-Route::get('//admin/index', action: [AppointController::class, 'adminIndex'])->name('admin.appointments.index');
-Route::post('//admin/index', [AppointController::class, 'adminIndex'])->name('admin.appointments.index');
+Route::get('//admin/index', action: [AppointController::class, 'adminIndex'])->name('admin.index');
+Route::post('//admin/index', [AppointController::class, 'adminIndex'])->name('admin.index');
 Route::get('/admin/services', action: [ServiceController::class, 'adminIndex'])->name('admin.services.index');
 Route::post('/admin/services', action: [ServiceController::class, 'adminIndex'])->name('admin.service.index');
+
+
 
 
 Route::put('/admin/service/{id}', [ServiceController::class, 'update'])->name('service.update');
 
 Route::put('//admin/index/{id}', [AppointController::class, 'update'])->name('appointments.update');
+Route::put('/admin/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update');
+
+
