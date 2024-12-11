@@ -2,8 +2,11 @@
 <section>
     <div class="recording">
         <div class="container">
-            <h2>Записаться</h2>
+            <h2>Консультация</h2>
             <div class="recording-content">
+                <div class="recording-paws">
+                    <img src="{{ asset('img/paws.png') }}" alt="Veterinary Clinic">
+                </div>
                 <div class="recording-img">
                     <img src="{{ asset('img/recording.png') }}" alt="recording">
                 </div>
@@ -21,22 +24,10 @@
                         </div>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-                    <div class="recording-form">
-                        <div class="recording-date">
-                            <label for="date">Дата:</label>
-                        </div>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="recording-form">
-                        <div class="recording-time">
-                            <label for="time">Время:</label>
-                        </div>
-                        <input type="time" id="time" name="time" required>
-                    </div>
-
-                    <p>Внимание: После отправки ближайшее время с вами свяжется наш сотрудник для уточнения информации
-                        по записи!</p>
-                        
+                    <p>Уже знаете к кому хотите записаться? Переходите на полную запись и выбирайте нужное время и день!
+                    </p>
+                    <p>Если хотите получить консультации то оставьте заявку здесь. Мы перезвоним вам в ближайшее время!
+                    </p>
                     <button type="submit" class="btn">Записаться</button>
                 </form>
 
