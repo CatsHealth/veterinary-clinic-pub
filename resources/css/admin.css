@@ -1,68 +1,33 @@
 /*sidebar*/
-.wrapper {
-    font-size:20px;
-    font-family:Montserrat;
-}
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 250px;
-    background-color: #343a40;
-    color: white;
-    padding-top: 20px;
-    transition: transform 0.3s ease;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.sidebar ul li {
-    padding: 15px;
-    text-align: center;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-.sidebar ul li a:hover {
-    background-color: #495057;
-}
-
-.sidebar.collapsed {
-    transform: translateX(-250px);
-}
-
-.content {
+.sidebar{
+    max-width: 1416px;
     width: 100%;
-    margin-left: 0;
-    transition: margin-left 0.3s ease;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 0 0;
 }
-
-.content.expanded {
-    margin-left: 250px;
+.sidebar ul{
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
 }
-
-.toggle-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    font-size: 30px;
-    background-color: transparent;
-    border: none;
-    color: #333;
+.sidebar ul li a{
+    color: #949393;
+    text-decoration: none;
+    transition: 0.1s;
 }
-.toggle-btn-white{
-    color: #ffffff;
+.sidebar ul li a:hover{
+    color: #cccccc;
+}
+.sidebar ul li a.selectid{
+    color: #f6a8b5;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidebar ul li a.selectid:hover{
+    color: #e07486;
+    text-decoration: none;
+    transition: 0.1s;
 }
 /*.sidebar*/
 
@@ -75,6 +40,7 @@ form {
 form input,
 form select,
 form textarea {
+    box-sizing: border-box;
     width: 100%;
     height: 45px;
     border-radius: 8px;
@@ -123,9 +89,7 @@ form label {
 }
 
 .service-form {
-    background-color: #fff;
     padding: 30px;
-    border-radius: 10px;
     max-width: 1416px;
     margin: 20px auto;
     font-family: 'Montserrat', sans-serif;
