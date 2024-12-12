@@ -10,7 +10,7 @@ class Appointments extends Model
     use SoftDeletes; 
 
     protected $fillable = [
-        'id_service',
+        'service_id',
         'date',
         'time',
         'name',
@@ -21,6 +21,7 @@ class Appointments extends Model
 
     public function service()
     {
-        return $this->belongsTo(Service::class, 'id_service');
+        return $this->belongsTo(Service::class, 'service_id');
     }
+    
 }

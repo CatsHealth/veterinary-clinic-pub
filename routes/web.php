@@ -8,42 +8,44 @@ use App\Http\Controllers\AppointController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index']) -> name('app');
+Route::get('/', [HomeController::class, 'index'])->name('app');
 
 //Пути пользователя
 
-Route::get('/services', [ServiceController::class, 'index']) -> name('services');
-Route::get('/services/{id}', [ServiceController::class, 'show']) -> name('service.show');
-Route::get('/appointment', [AppointController::class, 'index']) -> name('appointment');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/appointment', [AppointController::class, 'index'])->name('appointment');
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
 //Формы пользователя
-Route::post('/store', [AppointController::class, 'store']) -> name('store');
+Route::post('/store', [AppointController::class, 'store'])->name('store');
 
 //Авторизация
-Route::get('/auth', [AuthController::class, 'index']) -> name('auth');
-Route::post('/auth/go', [AuthController::class, 'authenticate']) -> name('auth.go');
-Route::get('/auth/logout', [AuthController::class, 'logout']) -> name('logout');
+Route::get('/auth', [AuthController::class, 'index'])->name('auth');
+Route::post('/auth/go', [AuthController::class, 'authenticate'])->name('auth.go');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 
 //Пути сотрудника
-Route::get('/schedule', [EmployeeController::class, 'index']) -> name('schedule')->middleware('role:doctor');
+Route::get('/schedule', [EmployeeController::class, 'index'])->name('schedule')->middleware(RoleMiddleware::class . ':doctor');
 
 
 //Пути админа
-Route::get('/admin', [AdminController::class, 'index']) -> name('admin')->middleware('role:admin');
-Route::get('/admin/service', [AdminController::class, 'service']) -> name('service')->middleware('role:admin');
-Route::get('/admin/doctors', [AdminController::class, 'doctors']) -> name('doctors')->middleware('role:admin');
-Route::get('/admin/index', [AppointController::class, 'store'])->name('appointments.store')->middleware('role:admin');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware(RoleMiddleware::class . ':admin');
+Route::get('/admin/service', [AdminController::class, 'service'])->name('service')->middleware(RoleMiddleware::class . ':admin');
+Route::get('/admin/doctors', [AdminController::class, 'doctors'])->name('doctors')->middleware(RoleMiddleware::class . ':admin');
+Route::get('/admin/index', [AppointController::class, 'store'])->name('appointments.store')->middleware(RoleMiddleware::class . ':admin');
 
 
 //Route::get('/api/dates/{serviceId}/{data}', [AppointController::class, 'getAllDatesInMonth']);
-Route::get('/api/get-available-times ', [AppointController::class, 'getAvailableTimes']) -> name ('getTimeIntervals');
+Route::get('/api/get-available-times ', [AppointController::class, 'getAvailableTimes'])->name('getTimeIntervals');
 
 //Формы админа
-Route::post('/admin/store', [ServiceController::class, 'store']) -> name('service.store');
-Route::post('/admin/doctor', [DoctorController::class, 'store']) -> name('doctor.store');
+Route::post('/admin/store', [ServiceController::class, 'store'])->name('service.store');
+Route::post('/admin/doctor', [DoctorController::class, 'store'])->name('doctor.store');
 Route::post('//admin/index', [AppointController::class, 'store'])->name('appointments.store');
 
 

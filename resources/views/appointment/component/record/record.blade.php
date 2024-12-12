@@ -8,9 +8,9 @@
         @csrf
 
         <div class="form-group">
-            <select name="id_service" id="id_service" class="appointment-select" required>
+            <select name="service_id" id="service_id" class="appointment-select" required>
                 @foreach($services as $service)
-                    <option value="{{ $service->id }}" @if(old('id_service') == $service->id) selected @endif>
+                    <option value="{{ $service->id }}" @if(old('service_id') == $service->id) selected @endif>
                         {{ $service->name }}
                     </option>
                 @endforeach
@@ -57,8 +57,8 @@
 </section>
 
 <script>
-    console.log(document.getElementById('id_service'))
-    document.getElementById('id_service').addEventListener('change', showServiceChange);
+    console.log(document.getElementById('service_id'))
+    document.getElementById('service_id').addEventListener('change', showServiceChange);
     const radioButtons = document.querySelectorAll('.radio-btn');
     const radios = document.querySelectorAll('input[name="options"]');
     radios.forEach(radio => {
@@ -66,7 +66,7 @@
     });
 
     function showServiceChange() {
-        var selectElement = document.getElementById('id_service');
+        var selectElement = document.getElementById('service_id');
         var serviceId = selectElement.value;
 
         // Получаем выбранную дату из радиокнопок

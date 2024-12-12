@@ -27,4 +27,11 @@ class Service extends Model
     {
         return $this->belongsToMany(Doctor::class, 'doctor_service');
     }
+        // В модели Service
+        public function appointments()
+        {
+            return $this->hasMany(Appointments::class);
+        }
+        
+    
 }

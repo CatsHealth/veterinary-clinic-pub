@@ -14,10 +14,11 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $role): Response
-    {if (!Auth::check() || Auth::user()->role !== $role) {
-        return redirect('/'); // Можно изменить на нужный маршрут
-    }
+    public function handle(Request $request, Closure $next, string $role): Response
+    {
+        if (!Auth::check() || Auth::user()->role !== $role) {
+            return redirect('/');
+        }
         return $next($request);
     }
 }
