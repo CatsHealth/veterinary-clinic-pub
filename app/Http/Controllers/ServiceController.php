@@ -122,29 +122,69 @@ class ServiceController extends Controller
 
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'price' => 'required|numeric',
-            'duration' => 'required|integer',
-            'caption' => 'required|string|max:255',
-            'recommendation' => 'nullable|string',
-            'description' => 'nullable|string',
-            'doctors' => 'required|array',
-            'doctors.*' => 'exists:doctors,id',
-        ]);
+{
+    // Валидируем данные запроса
+    $request->validate([
+        'name' => 'required|string|max:100',
+        'price' => 'required|numeric',
+        'duration' => 'required|integer',
+        'caption' => 'required|string|max:255',
+        'recommendation' => 'nullable|string',
+        'description' => 'nullable|string',
+        'doctor_1' => 'nullable|exists:doctors,id',
+        'doctor_2' => 'nullable|exists:doctors,id',
+        'doctor_3' => 'nullable|exists:doctors,id',
+        'filename' => 'nullable|image|mimes:jpeg,png,jpg,gif', // для нового изображения
+    ]);
     
-        $service = Service::findOrFail($id);
-        
-        // Обновляем данные сервиса
-        $service->update($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'));
+    // Находим услугу по ID
+    $service = Service::findOrFail($id);
     
-        // Обновляем связанные врачи
-        $doctors = $request->input('doctors');
-        $service->doctors()->sync($doctors);
+    // Обновляем данные сервиса
+    $service->update($request->only('name', 'price', 'duration', 'caption', 'recommendation', 'description'));
     
-        return back()->with('success', 'Услуга успешно обновлена.');
+    // Обновляем связанные врачи
+    // Получаем значения врачей из полей doctor_1, doctor_2, doctor_3
+    $doctors = [];
+    if ($request->filled('doctor_1')) {
+        $doctors[] = $request->input('doctor_1');
     }
+    if ($request->filled('doctor_2')) {
+        $doctors[] = $request->input('doctor_2');
+    }
+    if ($request->filled('doctor_3')) {
+        $doctors[] = $request->input('doctor_3');
+    }
+
+    // Синхронизируем врачей
+    $service->doctors()->sync($doctors);
+
+    // Если есть новый файл изображения, то загружаем его
+    if ($request->hasFile('filename')) {
+        // Удаляем старое изображение
+        if ($service->filename) {
+            $oldFilePath = public_path('path/' . $service->filename);
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath); // Удаляем старое изображение
+            }
+        }
+
+        // Загружаем новое изображение
+        $file = $request->file('filename');
+        $extension = $file->getClientOriginalExtension(); // Получаем оригинальное расширение
+        $timestamp = time();
+        $filename = 'Clinik_' . $timestamp . '.' . $extension;
+        $file->move(public_path('path'), $filename); // Сохраняем с правильным расширением
+
+        // Обновляем имя файла в базе данных
+        $service->update(['filename' => $filename]);
+    }
+
+    // Возвращаем ответ с сообщением об успешном обновлении
+    return back()->with('success', 'Услуга успешно обновлена.');
+}
+
+
     
 
 

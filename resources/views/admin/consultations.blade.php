@@ -1,3 +1,4 @@
+@vite(['resources/views/admin/service.css'])
 <x-layout>
     <x-admin>
         <h1>Список консультаций</h1>

@@ -1,14 +1,16 @@
 /* Основные стили для блока записи */
-.appointment-section{
+.appointment-section {
     color: #4e4e4e;
     font-size: 18px;
 }
+
 .appointment-title {
     text-align: center;
     font-size: 36px;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     margin-bottom: 30px;
 }
+
 .appointment-form {
     display: flex;
     flex-wrap: wrap;
@@ -18,34 +20,39 @@
     border-radius: 10px;
     max-width: 1416px;
     margin: 0 auto;
+    padding: 20px;
 }
-.form-group{
+
+.form-group {
     width: 100%;
 }
+
 .appointment-label {
     font-weight: 600;
     margin-bottom: 10px;
     display: block;
 }
-.appointment-select,
-.appointment-input {
+
+/* Для всех полей ввода */
+.appointment-input,
+.appointment-select {
     width: 100%;
-    height: 45px;
+    height: 45px; /* Задаем одинаковую высоту для всех */
     border-radius: 12px;
     border: 2px solid #c0c0c0;
     padding: 10px;
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box; /* Учитываем отступы внутри */
 }
+
 .appointment-select:focus,
 .appointment-input:focus {
     border-color: #f6a8b5;
     outline: none;
     box-shadow: 0 0 5px rgba(246, 168, 181, 0.5);
 }
-.appointment-subtitle {
-    margin-bottom: 15px;
-}
+
 .appointment-submit-btn {
     background-color: #f6a8b5;
     color: white;
@@ -56,180 +63,156 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 20px;
+    margin-left: auto; /* Центрирование кнопки */
+    margin-right: auto; /* Центрирование кнопки */
 }
+
+
 .appointment-submit-btn:hover {
     background-color: #f49db6;
 }
 
-
-
+/* Радиокнопки */
 .form_radio_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 10px;
 }
-.appointment-label-radio{
-    display: grid;
-}
-.form_radio_btn {
 
-    box-sizing: border-box;
+.form_radio_btn {
+    display: inline-block;
 }
+
 .form_radio_btn input[type=radio] {
-	display: none;
+    display: none;
 }
+
 .form_radio_btn label {
     font-size: 16px;
     font-weight: 500;
     color: rgb(121, 121, 121);
-	display: inline-block;
-	cursor: pointer;
-	padding: 0px 15px;
+    cursor: pointer;
+    padding: 0 15px;
     border: 1px solid #b3b3b3;
-	line-height: 34px;
-	border-radius: 15px;
-	user-select: none;
+    line-height: 34px;
+    border-radius: 15px;
+    user-select: none;
 }
- 
-/* Checked */
+
 .form_radio_btn input[type=radio]:checked + label {
-	background: #FBD4DA;
+    background: #FBD4DA;
     color: #353100;
     border: 1px solid #fff;
 }
- 
 
 .form_radio_btn label:hover {
-	color: #666;
+    color: #666;
 }
- 
 
 .form_radio_btn input[type=radio]:disabled + label {
-	background: #efefef;
-	color: #666;
+    background: #efefef;
+    color: #666;
 }
 
+.appointment-radio:disabled + .appointment-label-radio {
+    background-color: #f0f0f0;
+    color: #ccc;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Мобильные стили */
 @media (max-width: 1024px) {
     .appointment-title {
         font-size: 34px;
         margin-bottom: 25px;
     }
+
     .appointment-form {
         max-width: 800px;
     }
 
-    .appointment-select,
     .appointment-input {
-        height: 40px;
-        border-radius: 10px;
+        width: 100%; /* Фиксированная ширина для input */
+        height: 45px;
+        border-radius: 12px;
+        border: 2px solid #c0c0c0;
         padding: 10px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
     }
-    
-    .appointment-subtitle {
-        margin-bottom: 12px;
-    }
+
     .appointment-submit-btn {
         width: 150px;
-        padding: 12px;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
         margin-top: 15px;
     }
- 
+
     .form_radio_container {
         gap: 8px;
     }
 
     .form_radio_btn label {
         font-size: 14px;
-        padding: 0px 10px;
-        border: 1px solid #b3b3b3;
-        line-height: 24px;
-        border-radius: 10px;
+        padding: 0 10px;
     }
-    
 }
 
 @media (max-width: 767px) {
     .appointment-title {
-        font-size: 34px;
+        font-size: 30px;
     }
 
     .appointment-select,
     .appointment-input {
         height: 38px;
-        border-radius: 8px;
-        padding: 8px;
         margin-bottom: 12px;
     }
-    
-    .appointment-subtitle {
-        margin-bottom: 10px;
-    }
+
     .appointment-submit-btn {
         width: 150px;
-        padding: 10px;
-        border-radius: 8px;
         margin-top: 12px;
     }
- 
+
     .form_radio_container {
         gap: 6px;
     }
 
     .form_radio_btn label {
         font-size: 14px;
-        padding: 0px 10px;
-        border: 1px solid #b3b3b3;
-        line-height: 24px;
-        border-radius: 10px;
+        padding: 0 10px;
     }
 
-    .container{
-        margin: 0 90px;
+    .container {
+        margin: 0 60px;
     }
-
 }
 
 @media (max-width: 560px) {
     .appointment-select,
     .appointment-input {
         height: 30px;
-        border-radius: 6px;
-        padding: 6px;
         margin-bottom: 8px;
     }
-    
-    .appointment-subtitle {
-        margin-bottom: 8px;
-    }
+
     .appointment-submit-btn {
         width: 100px;
-        padding: 10px;
-        border-radius: 8px;
         margin-top: 12px;
     }
- 
+
     .form_radio_container {
         gap: 6px;
     }
 
     .form_radio_btn label {
         font-size: 12px;
-        padding: 0px 10px;
-        border: 1px solid #b3b3b3;
-        line-height: 20px;
-        border-radius: 6px;
+        padding: 0 10px;
     }
-
 }
-
 
 @media (max-width: 480px) {
     .container {
-        margin: 0 60px;
+        margin: 0 20px;
     }
 
     .appointment-title {
@@ -243,38 +226,20 @@
     .appointment-select,
     .appointment-input {
         height: 30px;
-        border-radius: 6px;
-        padding: 6px;
         margin-bottom: 8px;
     }
-    
-    .appointment-subtitle {
-        margin-bottom: 8px;
-    }
+
     .appointment-submit-btn {
         width: 100px;
-        padding: 10px;
-        border-radius: 8px;
         margin-top: 12px;
     }
- 
+
     .form_radio_container {
         gap: 6px;
     }
 
     .form_radio_btn label {
         font-size: 12px;
-        padding: 0px 10px;
-        border: 1px solid #b3b3b3;
-        line-height: 20px;
-        border-radius: 6px;
+        padding: 0 10px;
     }
-
-
-.appointment-radio:disabled + .appointment-label-radio {
-    background-color: #f0f0f0;
-    color: #ccc;
-    border-color: #ddd;
-    cursor: not-allowed;
-
 }
