@@ -101,3 +101,78 @@ form label {
     margin-bottom: 20px;
 }
 /*.формы*/
+
+
+@media (max-width: 1024px) {
+    form label {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }   
+    
+    .recording-form {
+        margin-top: 20px;
+    }
+
+    form input,
+form select,
+form textarea {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+form .form-group {
+    margin-bottom: 18px;
+}
+
+form {
+    max-width: 300px;
+}
+
+}
+
+@media (max-width: 767px) {
+    form label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }  
+
+    .recording-form {
+        margin-top: 15px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        margin-bottom: 12px;
+        font-size: 12px;
+        height: 30px;
+    }
+
+    form .form-group {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    form label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    } 
+
+    .recording-form {
+        margin-top: 10px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+        margin-bottom: 8px;
+        font-size: 10px;
+        height: 30px;
+        border-radius: 6px;
+    }
+
+    form .form-group {
+        margin-bottom: 8px;
+    }
+}
