@@ -84,7 +84,7 @@ class AppointController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            'id_service' => 'required',
+            'service_id' => 'required',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'name' => 'required|string|max:255',
