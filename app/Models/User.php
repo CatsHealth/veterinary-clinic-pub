@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'doctor_id'
     ];
+    public function doctor()
+{
+    return $this->hasOne(Doctor::class); // Один доктор связан с одним пользователем
+}
 
     /**
      * The attributes that should be hidden for serialization.

@@ -6,11 +6,15 @@ use DateTime;
 use App\Models\Appointments;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\AppointmentTrait;
 
 class AppointController extends Controller
-{
+{  
+    use AppointmentTrait;
     public function index(Request $request)
     {
+        
+
         $services = Service::all();
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
         $times = $this->getTimeIntervals(3, Appointments::all());
@@ -18,23 +22,46 @@ class AppointController extends Controller
         return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
 
-    // Метод для отображения списка записей в админке
+ 
     public function adminIndex(Request $request)
     {
-        // Получаем значение сортировки из запроса, по умолчанию 'asc'
-        $sortDirection = $request->input('sort', 'asc'); 
+        $sort = $request->input('sort');
 
-        // Проверка направления сортировки
-        if (!in_array($sortDirection, ['asc', 'desc'])) {
-            $sortDirection = 'asc'; // Устанавливаем 'asc' по умолчанию
+        // Определяем порядок сортировки по умолчанию
+        $orderBy = 'name'; // Поле, по которому будет происходить сортировка (например, 'name')
+        $direction = 'asc'; // Направление сортировки по умолчанию
+
+        // Устанавливаем параметры сортировки в зависимости от значения sort
+        switch ($sort) {
+            case 'asc':
+                $orderBy = 'name'; // Сортировка по имени
+                $direction = 'asc';
+                break;
+            case 'desc':
+                $orderBy = 'name'; // Сортировка по имени
+                $direction = 'desc';
+                break;
+            case 'newest':
+                $orderBy = 'created_at'; // Сортировка по дате создания
+                $direction = 'desc';
+                break;
+            case 'oldest':
+                $orderBy = 'created_at'; // Сортировка по дате создания
+                $direction = 'asc';
+                break;
+            default:
+                $orderBy = 'name'; // Значение по умолчанию
+                $direction = 'asc';
+                break;
         }
 
-        // Получаем записи, отсортированные по имени
-        $appointments = Appointments::orderBy('name', $sortDirection)->get();
+        // Получаем данные с учетом сортировки
+        $appointments = Appointments::orderBy($orderBy, $direction)->get();
 
         // Возвращаем представление с данными
-        return view('admin.index', compact('appointments', 'sortDirection')); 
+        return view('admin.index', compact('appointments', 'sort'));
     }
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -57,7 +84,7 @@ class AppointController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            'id_service' => 'required',
+            'service_id' => 'required',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'name' => 'required|string|max:255',
@@ -70,24 +97,7 @@ class AppointController extends Controller
         return back();
     }
 
-    public function getAllDatesInMonth($month, $year)
-    {
-        // Определяем количество дней в месяце
-        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-        $dates = [];
-        // $date->setDate($year, $month, 1);
-        //dump($daysInMonth);
-        for ($date = (new DateTime())->modify("first day of"); $date->format("m") == $month; $date->modify('+1 day')) {
-            $dates[] = $date->format('Y-m-d');
-        }
-        // Заполняем массив датами
-        //for ($day = 1; $day <= $daysInMonth; $day++) {
-        //    $dates[] = sprintf('%02d.%02d',   $day,$month); // Форматируем дату
-        //}
-
-        return $dates;
-    }
-
+    
     public function getTimeIntervals($service_id, $date)
     {
         $service = Service::find($service_id);
@@ -125,12 +135,7 @@ class AppointController extends Controller
         return $intervals;
     }
 
-    public function destroy($id)
-    {
-        $appointment = Appointments::findOrFail($id);
-        $appointment->delete(); // Мягкое удаление
-        return back()->with('success', 'Запись успешно удалена.');
-    }
+    
     
 
     public function getAvailableTimes(Request $request)
@@ -143,6 +148,13 @@ class AppointController extends Controller
 
     return response()->json($intervals);
 }
+
+public function destroy($id)
+    {
+        $appointment = Appointments::findOrFail($id);
+        $appointment->delete(); // Мягкое удаление
+        return back()->with('success', 'Запись успешно удалена.');
+    }
     
 }
 

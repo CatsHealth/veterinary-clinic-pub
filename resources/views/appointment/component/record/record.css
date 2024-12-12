@@ -110,8 +110,6 @@
 	color: #666;
 }
 
-
-
 @media (max-width: 1024px) {
     .appointment-title {
         font-size: 34px;
@@ -271,5 +269,12 @@
         line-height: 20px;
         border-radius: 6px;
     }
+
+
+.appointment-radio:disabled + .appointment-label-radio {
+    background-color: #f0f0f0;
+    color: #ccc;
+    border-color: #ddd;
+    cursor: not-allowed;
 
 }

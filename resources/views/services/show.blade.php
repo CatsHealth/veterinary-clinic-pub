@@ -13,7 +13,7 @@
             </div>
             <div class="service-img">
                 @if($service && $service->filename)
-                <img src="{{ asset('servise_img/' . $service->filename) }}" alt="Изображение" />
+                <img src="{{ asset('path/' . $service->filename) }}" alt="Изображение" />
             @else
                 <p>Изображение не найдено.</p>
             @endif

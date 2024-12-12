@@ -9,10 +9,9 @@
         @csrf
 
         <div class="form-group">
-            <select name="id_service" id="id_service" class="appointment-select" required
-            >
+            <select name="service_id" id="service_id" class="appointment-select" required>
                 @foreach($services as $service)
-                    <option value="{{ $service->id }}" @if(old('id_service') == $service->id) selected @endif>
+                    <option value="{{ $service->id }}" @if(old('service_id') == $service->id) selected @endif>
                         {{ $service->name }}
                     </option>
                 @endforeach
@@ -26,47 +25,42 @@
             <div class="form_radio_container" id="dateContainer">
                 @foreach($dates as $index => $date)
                     <div class="form_radio_btn">
-                        <input onchange="showServiceChange()"  id="date_{{ $index }}" type="radio" name="date" value="{{ $date }}" required />
-                        <label for="date_{{ $index }}">{{ $date }}</label>
+                        <input id="date_{{ $index }}" type="radio" name="date" value="{{ $date }}" required
+                            class="appointment-radio" />
+                        <label for="date_{{ $index }}" class="appointment-label-radio">
+                            {{ $date }}
+                        </label>
                     </div>
                 @endforeach
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="time" class="appointment-label">Время:</label>
-            <select name="time" id="time" class="appointment-select" required>
-                @foreach($times as $time)
-                    <option value="{{ $time }}" @if(old('time') == $time) selected @endif>{{ $time }}</option>
-                @endforeach
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="time" class="appointment-label">Время:</label>
+                <select name="time" id="time" class="appointment-select" required>
+                    @foreach($times as $time)
+                        <option value="{{ $time }}" @if(old('time') == $time) selected @endif>{{ $time }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="name" class="appointment-label">ФИО:</label>
-            <input type="text" name="name" id="name" class="appointment-input" required>
-        </div>
+            <div class="form-group">
+                <label for="name" class="appointment-label">ФИО:</label>
+                <input type="text" name="name" id="name" class="appointment-input" required>
+            </div>
 
-        <div class="form-group">
-            <label for="phone" class="appointment-label">Номер телефона:</label>
-            <input type="text" name="phone" id="phone" class="appointment-input" required>
-        </div>
+            <div class="form-group">
+                <label for="phone" class="appointment-label">Номер телефона:</label>
+                <input type="text" name="phone" id="phone" class="appointment-input" required>
+            </div>
 
-        <button type="submit" class="btn">Записаться</button>
+            <button type="submit" class="btn">Записаться</button>
     </form>
     </div>
 </section>
 
 <script>
-    console.log(document.getElementById('id_service'))
-
-    // function showServiceChange() {
-    //     var selectElement = document.getElementById('id_service');
-    //     var selectedOption = selectElement.options[selectElement.selectedIndex].text;
-    //     alert('Вы выбрали услугу: ' + selectedOption);
-    //     document.addEventListener('DOMContentLoaded', function() {
-    // Привязываем функцию к событию change для выпадающего списка
-    document.getElementById('id_service').addEventListener('change', showServiceChange);
+    console.log(document.getElementById('service_id'))
+    document.getElementById('service_id').addEventListener('change', showServiceChange);
     const radioButtons = document.querySelectorAll('.radio-btn');
     const radios = document.querySelectorAll('input[name="options"]');
     radios.forEach(radio => {
@@ -74,7 +68,7 @@
     });
 
     function showServiceChange() {
-        var selectElement = document.getElementById('id_service');
+        var selectElement = document.getElementById('service_id');
         var serviceId = selectElement.value;
 
         // Получаем выбранную дату из радиокнопок
@@ -91,16 +85,33 @@
                 var timeSelect = document.getElementById('time');
                 timeSelect.innerHTML = ''; // Очищаем предыдущие опции
 
-                data.forEach(function(time) {var option = document.createElement('option');
+                data.forEach(function (time) {
+                    var option = document.createElement('option');
                     option.value = time;
                     option.textContent = time;
                     timeSelect.appendChild(option);
-                    
+
                 });
                 console.log('Все ок');
             })
             .catch(error => console.error('Ошибка:', error));
-         
+
     }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const today = new Date();
+        const todayString = today.toISOString().split('T')[0]; // В формате YYYY-MM-DD
+        const dateRadios = document.querySelectorAll('input[name="date"]');
+        dateRadios.forEach(function (radio) {
+            const date = new Date(radio.value);
+            const day = date.getDay(); // Получаем день недели
+
+            // Блокируем субботу (6) и воскресенье (0), а также прошедшие дни
+            if (day === 6 || day === 0 || radio.value <= todayString) {
+                radio.disabled = true; // Блокируем радиокнопку
+            }
+        });
+    });
 
 </script>

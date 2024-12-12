@@ -23,7 +23,7 @@ class AppointmentSeeder extends Seeder
         
         for ($i = 0; $i < 5; $i++) {
             Appointments::create([
-                'id_service' => $serviceIds[array_rand($serviceIds)], 
+                'service_id' => $serviceIds[array_rand($serviceIds)], 
                 'date' => now()->addDays(rand(1, 30)), 
                 'time' => now()->addHours(rand(1, 12))->format('H:i'), 
                 'name' => $fixedNames[$i], 

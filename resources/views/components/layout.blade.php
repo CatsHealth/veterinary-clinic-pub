@@ -22,8 +22,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
     </style>
     <!-- swiper-->
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- swiper-->
     @vite(['resources/css/app.css', 'resources/css/admin.css'])
@@ -42,14 +41,25 @@
                     @endif>Услуги</a>
                     <a href="{{ route('appointment') }}" @if (request()->is('appointment*')) class="selectid"
                     @endif>Записаться</a>
-                    <a href="{{ route('admin') }}" @if (request()->is('admin*')) class="selectid" @endif>Админ</a>
+                    @if(auth()->check())
+
+                        @if (auth()->user()->role === 'admin')
+                            <a href="{{ route('admin') }}" @if (request()->is('admin*')) class="selectid" @endif>Админ</a>
+                        @endif
+
+                        @if (auth()->user()->role === 'doctor')
+                            <a href="{{ route('schedule') }}" @if (request()->is('schedule*')) class="selectid" @endif>Расписание</a>
+                        @endif
+
+                        <a href="{{ route('logout') }}">Выйти</a>
+                    @endif
                 </nav>
             </div>
         </div>
     </header>
 
     {{$slot}}
-    
+
     <footer>
         <div class="container">
             <div class="footer-content">
