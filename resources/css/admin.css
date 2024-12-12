@@ -1,33 +1,3 @@
-/*sidebar*/
-
-.sidebar{
-    max-width: 1416px;
-    margin: 10px;
-}
-.sidebar ul{
-    display: flex;
-    gap: 30px;
-    justify-content: flex-end;
-}
-.sidebar ul li a{
-    color: #949393;
-    text-decoration: none;
-    transition: 0.1s;
-}
-.sidebar ul li a:hover{
-    color: #cccccc;
-}
-.sidebar ul li a.selectid{
-    color: #f6a8b5;
-    text-decoration: none;
-    transition: 0.1s;
-}
-.sidebar ul li a.selectid:hover{
-    color: #e07486;
-    text-decoration: none;
-    transition: 0.1s;
-}
-/*.sidebar*/
 
 /*формы*/
 form {
@@ -106,18 +76,6 @@ form label {
     font-family: 'Montserrat';
 }
 
-.sorting-buttons button {
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #f6a8b5;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    padding: 0px 15px;
-    line-height: 34px;
-    border-radius: 10px;
-}
-
 .services-table{
     margin-top: 50px;
 }
@@ -145,32 +103,6 @@ form label {
 
 .services-table li {
     margin-bottom: 10px;
-}
-
-.btn-edit {
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #f6a8b5;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    padding: 0px 15px;
-    line-height: 34px;
-    border-radius: 10px;
-}
-
-
-.btn-delete {
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #f6a8b5;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    padding: 0px 15px;
-    line-height: 34px;
-    border-radius: 10px;
-    margin-bottom: 4px;
 }
 
 /*доктора*/
