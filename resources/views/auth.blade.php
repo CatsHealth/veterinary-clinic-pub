@@ -1,24 +1,30 @@
 <x-layout>
-    <form action="{{ route('auth.go') }}" method="POST">
-        @csrf
-        <label for="email">Логин:</label>
-        <input type="email" id="email" name="email" required maxlength="100" value="{{ old('email') }}">
-        
-        @error('email')
-            <div class="error-message">{{ $message }}</div>
-        @enderror
+    <div class="container">
+        <form action="{{ route('auth.go') }}" method="POST" class="auth-form">
+            @csrf
+            <h2 class="form-title">Вход в систему</h2>
 
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required maxlength="100">
-        
-        @error('password')
-            <div class="error-message">{{ $message }}</div>
-        @enderror
-        
-        <button type="submit" class="btn">Сохранить</button>
+            <div class="form-group">
+                <label for="email" class="form-label">Логин:</label>
+                <input type="email" id="email" name="email" required maxlength="100" value="{{ old('email') }}" placeholder="Введите ваш логин">
+                @error('email')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
 
-        @if (Auth::check())
-            <p>Ты зарегистрирован</p>
-        @endif
-    </form>
+            <div class="form-group">
+                <label for="password" class="form-label">Пароль:</label>
+                <input type="password" id="password" name="password" required maxlength="100" placeholder="Введите ваш пароль">
+                @error('password')
+                    <div class="error-message">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn submit-btn">Сохранить</button>
+
+            @if (Auth::check())
+                <p class="auth-status">Ты зарегистрирован</p>
+            @endif
+        </form>
+    </div>
 </x-layout>

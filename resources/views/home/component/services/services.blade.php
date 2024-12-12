@@ -14,12 +14,12 @@
 
                     @foreach ($services as $service)  
                           <div class="services-list-item">
-                                <a class="service-name"> {{$service->name}}</a>
+                          <a href="{{ route('service.show', $service->id) }}"> {{$service->name}}</a>
                                 <p class="service-caption"> {{$service->caption}}</p>
                             </div>
                     @endforeach
 
-                </div>
+                </div> 
 
 
             </div>

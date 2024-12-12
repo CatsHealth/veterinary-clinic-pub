@@ -22,7 +22,7 @@ Route::get('/appointment', [AppointController::class, 'index'])->name('appointme
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/appointment/record', [AppointController::class, 'store'])->name('appointment.record');
 //Формы пользователя
-Route::post('/store', [AppointController::class, 'store'])->name('store');
+Route::post('/store', [AppointController::class, 'store'])->name('appointment.new');
 
 Route::post('/signUp', [ConsultationController::class, 'store'])->name('consultation.store');
 

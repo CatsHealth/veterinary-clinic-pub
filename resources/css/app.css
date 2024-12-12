@@ -1,43 +1,57 @@
-/*общие*/
-* { 
-    margin: 0; 
-    padding: 0; 
-}  
-html { 
-   scroll-behavior: smooth; 
-}  
-body {
-    margin: 0 auto; 
-}  
-ul {
-   list-style: none; 
-} 
-a { 
-   color: #7E7F86; 
-   text-decoration: none; 
-} 
-a:visited { 
-   text-decoration: none; 
-} 
-
-/*.общие*/
-/*header*/
-.header_conteiner {       
-    margin: 0 auto;       
-    padding: 0 0;   
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Добавил для более удобного контроля за размерами элементов */
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+
+}
+
+a {
+    color: #7E7F86;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #25202F;
+}
+
+/* Header */
+.header_conteiner {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1400px;
+}
+
 .row {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: 16px;  
+    column-gap: 16px;
 }
+
 /* Логотип */
 .logo {
     display: flex;
     align-items: center;
 }
+
 /* Навигация */
 .nav {
     font-size: 18px;
@@ -45,11 +59,13 @@ a:visited {
     align-items: center;
     gap: 26px;
 }
+
 .nav a {
     color: #949393;
     text-decoration: none;
     transition: 0.1s;
 }
+
 .nav a.selectid {
     color: #f6a8b5;
 }
@@ -57,73 +73,73 @@ a:visited {
 .nav a.selectid:hover {
     color: #ebc6cc;
 }
+
 .nav a:hover {
     color: #cccccc;
 }
-/*.header*/
-.body {
-    margin: 0;
-}
-.container{
-    margin: 0 140px;
-}
 
-.btn{
-    background-color:#f6a8b5;
+/* Кнопки */
+.btn {
+    background-color: #f6a8b5;
     padding: 10px 15px;
-    border-radius:10px;
+    border-radius: 10px;
     border: none;
     color: #fff;
-    font-size:20px;
-    font-family:Montserrat Alternates;
+    font-size: 20px;
+    font-family: Montserrat Alternates;
     cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: #f49db6;
 }
 
-label{
-    color:#4e4e4e;
-    text-align:left;
-    vertical-align:text-top;
-    font-size:24px;
-    font-family:Montserrat;
+/* Формы */
+label {
+    color: #4e4e4e;
+    text-align: left;
+    vertical-align: text-top;
+    font-size: 24px;
+    font-family: Montserrat;
 }
-input{
-    height:41px;
-    width:612px;
-    border-radius:10px;
-    border:2px solid #c0c0c0;
+
+input {
+    height: 41px;
+    width: 100%; /* Сделал ширину 100%, чтобы адаптировался к контейнеру */
+    border-radius: 10px;
+    border: 2px solid #c0c0c0;
     padding: 5px;
     margin: 5px 0;
 }
-footer{
+
+/* Footer */
+footer {
     background-color: #FBD4DA;
     margin-top: 100px;
     overflow: hidden;
 }
 
-.footer-content{
+.footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.footer-info{
+.footer-info {
     margin-top: 107px;
 }
 
-.footer-info h3{
+.footer-info h3 {
     margin-top: 0;
-    color:#4e4e4e;
-    font-size:24px;
-    font-family:Montserrat;
+    color: #4e4e4e;
+    font-size: 24px;
+    font-family: Montserrat;
 }
 
-.footer-info a{
-    color:#4e4e4e;
-    font-size:20px;
-    font-family:Montserrat;
+.footer-info a {
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
     margin-left: 15px;
     margin-top: 20px;
 }
@@ -132,137 +148,213 @@ footer{
     color: #222222;
 }
 
-.footer-nav{
+.footer-nav {
     display: flex;
     flex-direction: column;
     gap: 30px;
     margin-top: 107px;
 }
 
-.map{
+.map {
     margin-top: 107px;
 }
-.tel{
+
+.tel,
+.email-box,
+.adres {
     display: flex;
     align-items: flex-end;
     margin-top: 10px;
 }
-.email-box{
-    display: flex;
-    align-items: flex-end;
-    margin-top: 10px;
-}
-.adres{
-    display: flex;
-    align-items: flex-end;
-    margin-top: 10px;
-}
-.footer-nav a{
-    color:#6e6e6e;
-    font-size:20px;
-    font-family:Montserrat;
+
+.footer-nav a {
+    color: #6e6e6e;
+    font-size: 20px;
+    font-family: Montserrat;
     text-decoration: none;
     transition: 0.1s;
 }
+
 .footer-nav a:hover {
-    color:#222222;
+    color: #222222;
 }
-.copyright p{
-    color:#4e4e4e;
-    font-size:16px;
-    font-family:Montserrat;
+
+.copyright p {
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
     text-align: center;
 }
 
-.services-list{
+/* Список услуг */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.services-list-item {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-}
-
-.services-list-item{
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid #f6a8b5;
-    width: 220px;
-    margin: 0 40px 40px 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.conteiner{
-    margin: 0 140px;
+.services-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.services-h1 h1{
-    margin: 50px 140px 50px 140px;
-    font-size: 36px;
-    color: #4e4e4e;
-    font-family: Montserrat;
-}
-
-.service-name{
+.services-list-item a {
     color: #4e4e4e;
     font-size: 20px;
-    font-family: Montserrat;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-.service-caption{
+.services-list-item a:hover {
+    color: #25202F;
+}
+
+.services-list-item p {
     color: #4e4e4e;
     font-size: 16px;
-    font-family: Montserrat;
-    margin-top: 15px;
-}
-
-
-.service h1{
-    font-size: 36px;
-    color: #4e4e4e;
-    font-family: Montserrat;
-    margin: 50px 0 20px 0;
-}
-
-.service-content{
-    display: flex;
-    flex-wrap:wrap;
-}
-
-.service-info{
-    margin-right: 50px;
-}
-
-.service-info p{
-    color: #4e4e4e;
-    font-size: 16px;
-    font-family: Montserrat;
-    margin-top: 15px;
-    max-width: 900px;
+    line-height: 1.5;
+    margin-top: 10px;
     text-align: justify;
 }
 
-.services-list-item a{
-    color: #4e4e4e;
-    font-size: 20px;
-    font-family: Montserrat;
+.container,
+.conteiner {
+    margin: 0 auto;
+    max-width: 1400px;
 }
 
-.services-list-item p{
+h1, h2, h3, p, a {
+    font-family: 'Montserrat', sans-serif;
+    color: #4e4e4e;
+}
+
+/* Заголовок на странице услуг */
+.services-h1 h1 {
+    margin: 50px 140px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Стили для названия услуги */
+.service-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Описание услуги */
+.service-caption {
     color: #4e4e4e;
     font-size: 16px;
-    font-family: Montserrat;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Общие стили для услуги */
+.service h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+/* Контент услуги */
+.service-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-img {
+    text-align: center;
+}
+
+.service-img img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-image {
+    font-size: 16px;
+    color: #ff6a6a;
+}
+
+.service-info {
+    flex: 2;
+    max-width: 600px;
+}
+
+.service-info p {
+    color: #4e4e4e;
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Цена услуги */
+.service-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4e4e4e;
+    margin-top: 20px;
+}
+
+/* Ссылки */
+.services-list-item a {
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.services-list-item a:hover {
+    color: #ff4c97;
+}
+
+.services-list-item p {
+    color: #4e4e4e;
+    font-size: 16px;
     margin-top: 15px;
 }
 
+/* Футер */
+.service-footer {
+    text-align: center;
+    margin-top: 40px;
+}
 
-
+/* Медиазапросы */
 @media (max-width: 1024px) {
-    .services-list-item a{
+    .services-list-item a {
         font-size: 18px;
     }
-    
-    .services-list-item p{
+
+    .services-list-item p {
         font-size: 16px;
     }
 
-    .services-list-item{
+    .services-list-item {
         padding: 20px;
         width: 190px;
         margin: 0 25px 25px 0;
@@ -270,13 +362,13 @@ footer{
 
     .row {
         margin-top: 10px;
-        column-gap: 16px;  
+        column-gap: 16px;
     }
-    /* Логотип */
+
     .logo {
         width: 60px;
     }
-    /* Навигация */
+
     .nav {
         font-size: 16px;
         gap: 24px;
@@ -287,71 +379,70 @@ footer{
         padding: 8px 13px;
     }
 
-    footer{
+    footer {
         margin-top: 90px;
     }
-    
-    .footer-info{
+
+    .footer-info {
         margin-top: 50px;
     }
-    
-    .footer-info h3{
-        font-size:22px;
+
+    .footer-info h3 {
+        font-size: 22px;
     }
-    
-    .footer-info a{
-        font-size:18px;
+
+    .footer-info a {
+        font-size: 18px;
         margin-left: 12px;
         margin-top: 20px;
     }
-    
-    .footer-nav{
+
+    .footer-nav {
         gap: 25px;
         margin-top: 50px;
     }
-    
-    .map{
+
+    .map {
         margin-top: 50px;
     }
 
-    .footer-nav a{
-        font-size:18px;
+    .footer-nav a {
+        font-size: 18px;
     }
 
-    .copyright p{
-        font-size:14px;
+    .copyright p {
+        font-size: 14px;
     }
 
-    .services-h1 h1{
+    .services-h1 h1 {
         margin: 40px 120px 40px 120px;
         font-size: 34px;
     }
-    
-    .service-name{
+
+    .service-name {
         font-size: 18px;
     }
-    
-    .service-caption{
+
+    .service-caption {
         font-size: 14px;
         margin-top: 15px;
     }
-    
-    
-    .service-info{
+
+    .service-info {
         margin-right: 40px;
     }
-    
-    .service-info p{
+
+    .service-info p {
         font-size: 14px;
         margin-top: 15px;
         max-width: 900px;
     }
-    
-    .services-list-item a{
+
+    .services-list-item a {
         font-size: 18px;
     }
-    
-    .services-list-item p{
+
+    .services-list-item p {
         font-size: 14px;
         margin-top: 15px;
     }
@@ -361,17 +452,18 @@ footer{
     }
 
     .service-info {
-        margin-right: 0px;
+        margin-right: 0;
     }
 
     .service-img img {
-       width: 450px;
+        width: 550px;
     }
 
     .map {
-    width: 100%;
-    overflow: hidden;
+        width: 100%;
+        overflow: hidden;
     }
+
     .map script {
         position: absolute;
         top: 0;
@@ -379,39 +471,37 @@ footer{
         width: 100%;
         height: 100%;
     }
-    
 }
 
 @media (max-width: 767px) {
-    .container{
+    .container,
+    .conteiner {
         margin: 0 90px;
-    }
-    .conteiner{
-        margin: 0 90px;
+        max-width: 767px;
     }
 
-    .services-list-item a{
+    .services-list-item a {
         font-size: 16px;
     }
-    
-    .services-list-item p{
+
+    .services-list-item p {
         font-size: 14px;
     }
 
-    .services-list-item{
+    .services-list-item {
         padding: 15px;
         width: 160px;
         margin: 0 20px 20px 0;
     }
 
     .row {
-        column-gap: 14px;  
+        column-gap: 14px;
     }
-    /* Логотип */
+
     .logo {
         width: 50px;
     }
-    /* Навигация */
+
     .nav {
         font-size: 14px;
         gap: 22px;
@@ -422,71 +512,70 @@ footer{
         padding: 6px 11px;
     }
 
-    footer{
+    footer {
         margin-top: 80px;
     }
-    
-    .footer-info{
+
+    .footer-info {
         margin-top: 40px;
     }
-    
-    .footer-info h3{
-        font-size:20px;
+
+    .footer-info h3 {
+        font-size: 20px;
     }
-    
-    .footer-info a{
-        font-size:16px;
+
+    .footer-info a {
+        font-size: 16px;
         margin-left: 10px;
         margin-top: 18px;
     }
-    
-    .footer-nav{
+
+    .footer-nav {
         gap: 20px;
         margin-top: 45px;
     }
-    
-    .map{
+
+    .map {
         margin-top: 45px;
     }
 
-    .footer-nav a{
-        font-size:16px;
+    .footer-nav a {
+        font-size: 16px;
     }
 
-    .copyright p{
-        font-size:12px;
+    .copyright p {
+        font-size: 12px;
     }
 
-    .services-h1 h1{
+    .services-h1 h1 {
         margin: 30px 100px 30px 100px;
         font-size: 32px;
     }
-    
-    .service-name{
+
+    .service-name {
         font-size: 16px;
     }
-    
-    .service-caption{
+
+    .service-caption {
         font-size: 12px;
         margin-top: 10px;
     }
-    
-    
-    .service-info{
+
+    .service-info {
         margin-right: 30px;
     }
-    
-    .service-info p{
+
+    .service-info p {
         font-size: 12px;
         margin-top: 10px;
         max-width: 800px;
     }
-    
-    .services-list-item a{
+
+    .services-list-item a {
         font-size: 16px;
     }
-    
-    .services-list-item p{
+
+    .services-list-item p {
         font-size: 12px;
         margin-top: 10px;
     }
@@ -499,60 +588,47 @@ footer{
     .service-img img {
         width: 300px;
         margin-top: 10px;
-     }
-
+    }
 }
 
-
 @media (max-width: 575px) {
-
-    
-    .footer-info{
+    .footer-info,
+    .footer-nav {
         margin: auto;
         text-align: center;
         padding: 20px 0;
     }
-    
-    .footer-nav{
-        margin: auto;
-        text-align: center;
-        padding:20px 0;
-    }
-    
-  }
-
+}
 
 @media (max-width: 480px) {
-    .container{
+    .container,
+    .conteiner {
         margin: 0 60px;
+        max-width: 480px;
     }
 
-    .conteiner{
-        margin: 0 60px;
-    }
-
-    .services-list-item a{
+    .services-list-item a {
         font-size: 14px;
     }
-    
-    .services-list-item p{
+
+    .services-list-item p {
         font-size: 12px;
     }
 
-    .services-list-item{
+    .services-list-item {
         padding: 15px;
         width: 140px;
         margin: 0 5px 5px 0;
     }
 
     .row {
-        column-gap: 14px;  
+        column-gap: 14px;
     }
-    /* Логотип */
+
     .logo {
         width: 40px;
     }
-    /* Навигация */
+
     .nav {
         font-size: 12px;
         gap: 20px;
@@ -562,101 +638,94 @@ footer{
         font-size: 14px;
     }
 
-    footer{
+    footer {
         margin-top: 60px;
     }
-    
-    .footer-info{
+
+    .footer-info {
         margin-top: 35px;
     }
-    
-    .footer-info h3{
-        font-size:18px;
+
+    .footer-info h3 {
+        font-size: 18px;
     }
-    
-    .footer-info a{
-        font-size:14px;
+
+    .footer-info a {
+        font-size: 14px;
         margin-left: 8px;
         margin-top: 16px;
     }
-    
-    .footer-nav{
+
+    .footer-nav {
         gap: 18px;
         margin-top: 40px;
     }
-    
-    .map{
+
+    .map {
         margin-top: 40px;
     }
 
-    .footer-nav a{
-        font-size:14px;
+    .footer-nav a {
+        font-size: 14px;
     }
 
-    .copyright p{
-        font-size:12px;
+    .copyright p {
+        font-size: 12px;
     }
 
-    .footer-info{
+    .footer-info {
         margin: auto;
         text-align: center;
         padding: 10px 0;
     }
-    
-    .footer-nav{
+
+    .footer-nav {
         text-align: center;
-        padding:10px 0;
+        padding: 10px 0;
     }
 
     .service h1 {
         font-size: 24px;
     }
 
-    .services-h1 h1{
-        margin: 20px 80px 20px 80px;
-        font-size: 24px;
+    .services-h1 h1 {
+        margin: 25px 80px 25px 80px;
+        font-size: 28px;
     }
-    
-    .service-name{
+
+    .service-name {
         font-size: 14px;
     }
-    
-    .service-caption{
-        font-size: 12px;
+
+    .service-caption {
+        font-size: 10px;
         margin-top: 8px;
     }
-    
-    
-    .service-info{
-        margin-right: 25px;
+
+    .service-info {
+        margin-right: 20px;
     }
-    
-    .service-info p{
-        font-size: 12px;
+
+    .service-info p {
+        font-size: 10px;
         margin-top: 8px;
-        max-width: 400px;
     }
-    
-    .services-list-item a{
+
+    .services-list-item a {
         font-size: 14px;
     }
-    
-    .services-list-item p{
-        font-size: 12px;
+
+    .services-list-item p {
+        font-size: 10px;
         margin-top: 8px;
+    }
+
+    .service-info {
+        margin-right: 0;
     }
 
     .service-img img {
-        width: 200px;
-     }
-  }
-
-
-
-
-
-
-
-
-
-
+        width: 280px;
+        margin-top: 8px;
+    }
+}
