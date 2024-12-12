@@ -1,5 +1,6 @@
 <x-layout>
     <x-admin>
+        <div class="conteiner">
         <h1>Список врачей</h1>
 
         <div class="sorting-buttons">
@@ -149,7 +150,7 @@
             <button type="submit" class="btn">Сохранить</button>
             
         </form>
-        
+        </div>
     </x-admin>
 </x-layout>
 

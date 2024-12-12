@@ -1,5 +1,6 @@
 <x-layout>
     <x-admin>
+        <div class="conteiner">
         <h1>Список консультаций</h1>
         <table class="table">
             <thead>
@@ -33,6 +34,6 @@
                 @endforeach
             </tbody>
         </table>
-        
+      </div>  
     </x-admin>
 </x-layout>

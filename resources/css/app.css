@@ -19,9 +19,7 @@ a {
 a:visited { 
    text-decoration: none; 
 } 
-a:hover { 
-   color: #25202F; 
-}
+
 /*.общие*/
 /*header*/
 .header_conteiner {       

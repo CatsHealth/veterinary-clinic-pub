@@ -1,6 +1,6 @@
 <x-layout>
     <x-admin>
-        <div class="container">
+        <div class="conteiner">
         <h1>Список Услуг</h1>
         <div class="sorting-buttons">
             <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
@@ -55,7 +55,9 @@
                             @endif
                         </td>
                         <td>{{ $service->price }}</td>
+
                         <td>
+                            
                             <button type="button" class="btn-edit"
                                 onclick="openEditServiceModal({{ $service->id }}, '{{ addslashes($service->name) }}', {{ $service->price }}, {{ $service->duration }}, '{{ addslashes($service->caption) }}', '{{ addslashes($service->recommendation) }}', '{{ addslashes($service->description) }}', null)">Изменить</button>
                         </td>
@@ -67,7 +69,9 @@
                                 <button type="submit" class="btn-delete"
                                     onclick="return confirm('Вы уверены, что хотите удалить эту услугу?')">Удалить</button>
                             </form>
+                        
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>

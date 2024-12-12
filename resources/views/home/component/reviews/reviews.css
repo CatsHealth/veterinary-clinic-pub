@@ -1,7 +1,6 @@
 .reviews {
     margin-top: 100px;
-    position: relative;
-    
+    position: relative;   
 }
 .swiper {
     width: 100%;
@@ -44,10 +43,6 @@
     margin-top: 100px;
 }
 
-
-
-
-
 .reviews-list-item {
     padding: 20px;
     border-radius: 10px;
@@ -55,8 +50,6 @@
     max-width: 500px;
     width: 100%;
 }
-
-
 
 .reviews-name {
     display: flex;
@@ -101,6 +94,34 @@
     .reviews h2 {
         font-size: 50px; 
     }
+
+    .reviews-name h3 {
+        font-size:18px;
+    }
+    
+    .star-rating {
+        width: 18px;
+    }
+
+    .reviews-list-item {
+        padding: 18px;
+    }
+        
+    .reviews-text p {
+        font-size:14px;
+        margin-top: 8px;
+    }
+
+    .container-swiper {
+        margin-top: 80px;
+    }
+
+    .button-prev {
+        left: -50px;
+    }
+    .button-next {
+        right: -50px;
+    }
  
 }
 
@@ -113,19 +134,69 @@
         font-size: 35px;
     }
 
+    .reviews-name h3 {
+        font-size:16px;
+    }
+    
+    .star-rating {
+        width: 16px;
+    }
+
+    .reviews-list-item {
+        width: 80%;
+    }
+
+    .container-swiper {
+        margin-top: 60px;
+    }
+
+    .button-prev {
+        left: -50px;
+    }
+    .button-next {
+        right: -50px;
+    }
 
 }
 
 
 @media (max-width: 480px) {
     .reviews {
-        margin-top: 60px;
+        margin-top: 30px;
     }
 
     .reviews h2 {
         font-size: 24px;
     }
 
+    .reviews-name h3 {
+        font-size:14px;
+    }
+    
+    .star-rating {
+        width: 14px;
+    }
+    
+    
+    .reviews-text p {
+        font-size:12px;
+        margin-top: 6px;
+    }
+ 
+    .reviews-list-item {
+        width: 60%;
+    }
+
+    .container-swiper {
+        margin-top: 30px;
+    }
+
+    .button-prev {
+        left: -30px;
+    }
+    .button-next {
+        right: -30px;
+    }
 
 }
 

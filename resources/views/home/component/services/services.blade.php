@@ -24,7 +24,7 @@
 
             </div>
             <div class="services-btn">
-                <button class="btn">Посмотреть все услуги</button>
+            <a href="{{ route('services') }}" class="btn">Посмотреть все услуги</a>
             </div>
         </div>
     </div>

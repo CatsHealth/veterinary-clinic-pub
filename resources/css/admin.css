@@ -2,9 +2,7 @@
 
 .sidebar{
     max-width: 1416px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 0;
+    margin: 10px;
 }
 .sidebar ul{
     display: flex;
@@ -88,9 +86,8 @@ form label {
 }
 
 .service-form {
-    padding: 30px;
+    padding-top: 30px;
     max-width: 1416px;
-    margin: 20px auto;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -99,9 +96,159 @@ form label {
     color: #4e4e4e;
     font-size: 28px;
     margin-bottom: 20px;
+    font-family: 'Montserrat';
 }
-/*.формы*/
+/*услуги*/
+.container h1 {
+    color: #4e4e4e;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+}
 
+.sorting-buttons button {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f6a8b5;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 0px 15px;
+    line-height: 34px;
+    border-radius: 10px;
+}
+
+.services-table{
+    margin-top: 50px;
+}
+
+.services-table th{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.services-table td{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+    max-width: 300px;
+}
+
+.services-table ul {
+    padding: 20px; 
+    margin: 0; 
+}
+
+.services-table li {
+    margin-bottom: 10px;
+}
+
+.btn-edit {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f6a8b5;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 0px 15px;
+    line-height: 34px;
+    border-radius: 10px;
+}
+
+
+.btn-delete {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f6a8b5;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 0px 15px;
+    line-height: 34px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+}
+
+/*доктора*/
+.conteiner h1{
+    color: #4e4e4e;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+}
+
+.doctors-table{
+    margin: 30px 0;
+}
+
+.doctors-table th{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.doctors-table td{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+    max-width: 300px;
+    padding: 10px 10px 10px 0px; 
+}
+
+.doctors-table ul {
+    padding: 20px; 
+}
+
+/*записи*/
+.appointments-table{
+    margin-top: 30px;
+}
+
+.appointments-table th{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+    padding-bottom: 20px;
+    padding-right: 20px;   
+}
+
+.appointments-table td{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+    max-width: 300px;
+    padding: 10px 10px 10px 0px; 
+}
+
+/*консультаций*/
+.table{
+    margin-top: 30px;
+}
+
+.table th{
+    color: #4e4e4e;
+    font-size: 20px;
+    font-family: Montserrat;
+    padding-bottom: 20px;
+    padding-right: 20px;   
+}
+
+.table td{
+    color: #4e4e4e;
+    font-size: 16px;
+    font-family: Montserrat;
+    margin-top: 15px;
+    max-width: 300px;
+    padding: 10px 10px 10px 0px; 
+}
 
 @media (max-width: 1024px) {
     form label {
@@ -128,13 +275,96 @@ form {
     max-width: 300px;
 }
 
+
+/*услуги*/
+.container h1 {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.sorting-buttons button {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 15px;
+    margin-bottom: 10px;
+}
+
+.services-table{
+    margin-top: 45px;
+}
+
+.services-table th{
+    font-size: 18px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.services-table td{
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.services-table ul {
+    padding: 20px; 
+}
+
+.services-table li {
+    margin-bottom: 10px;
+}
+
+.btn-edit {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 15px;
+}
+
+
+.btn-delete {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 15px;
+}
+
+/*доктора*/
+.conteiner h1{
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.doctors-table{
+    margin: 25px 0;
+}
+
+.doctors-table th{
+    font-size: 18px;
+    padding-bottom: 18px;
+    padding-right: 18px;
+}
+
+.doctors-table td{
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px 10px 10px 0px; 
+}
+
+.doctors-table ul {
+    padding: 15px; 
+}
+
+button.btn-delete{
+    margin-top: 8px;
+}
+
 }
 
 @media (max-width: 767px) {
+
     form label {
         font-size: 14px;
         margin-bottom: 6px;
     }  
+
 
     .recording-form {
         margin-top: 15px;
@@ -146,11 +376,125 @@ form {
         margin-bottom: 12px;
         font-size: 12px;
         height: 30px;
+        padding: 5px;
+        border-radius: 6px;
     }
 
     form .form-group {
-        margin-bottom: 10px;
+        margin-bottom: 1px;
     }
+
+    /*услуги*/
+.container h1 {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+.servic-btns{
+    display: flex;
+
+}
+
+.sorting-buttons button {
+    font-size: 12px;
+    padding: 0px 12px;
+    margin-bottom: 8px;
+}
+
+.services-table{
+    margin-top: 30px;
+}
+
+.services-table th{
+    font-size: 16px;
+    margin-top: 12px;
+    padding-bottom: 10px;
+    padding-right: 12px;
+}
+
+.services-table td{
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.services-table ul {
+    padding: 10px; 
+}
+
+.services-table li {
+    margin-bottom: 10px;
+}
+
+.btn-edit {
+    font-size: 12px;
+    padding: 0px 12px;
+}
+
+
+.btn-delete {
+    font-size: 12px;
+    padding: 0px 12px;
+}
+
+/*доктора*/
+.conteiner h1{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.doctors-table{
+    margin: 20px 0;
+}
+
+.doctors-table th{
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.doctors-table td{
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 6px 6px 6px 0px; 
+}
+
+.doctors-table ul {
+    padding: 12px; 
+}
+
+/*записи*/
+.appointments-table{
+    margin-top: 15px;
+}
+
+.appointments-table th{
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-right: 10px;   
+}
+
+.appointments-table td{
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 6px 6px 6px 0px; 
+}
+
+/*консультации*/
+.table{
+    margin-top: 15px;
+}
+
+.table th{
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-right: 10px;   
+}
+
+.table td{
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 6px 6px 6px 0px; 
+}
+
 }
 
 @media (max-width: 480px) {
@@ -175,4 +519,111 @@ form {
     form .form-group {
         margin-bottom: 8px;
     }
+
+    /*услуги*/
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.sorting-buttons button {
+    font-size: 10px;
+    padding: 0px 10px;
+}
+
+.services-table{
+    margin-top: 15px;
+}
+
+.services-table th{
+    font-size: 12px;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+}
+
+.services-table td{
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+.services-table ul {
+    padding: 16px; 
+}
+
+.services-table li {
+    margin-bottom: 10px;
+}
+
+.btn-edit {
+    font-size: 12px;
+    padding: 0px 12px;
+}
+
+
+.btn-delete {
+    font-size: 12px;
+    padding: 0px 12px;
+}
+
+/*доктора*/
+.conteiner h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.doctors-table{
+    margin: 10px 0;
+}
+
+.doctors-table th{
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.doctors-table td{
+    font-size: 10px;
+    margin-top: 6px;
+    padding: 4px 4px 4px 0px; 
+}
+
+.doctors-table ul {
+    padding: 10px; 
+}
+
+/*записи*/
+.appointments-table{
+    margin-top: 10px;
+}
+
+.appointments-table th{
+    font-size: 12px;
+    padding-bottom: 5px;
+    padding-right: 5px;   
+}
+
+.appointments-table td{
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 4px 4px 4px 0px; 
+}
+
+/*консультации*/
+.table{
+    margin-top: 10px;
+}
+
+.table th{
+    font-size: 12px;
+    padding-bottom: 5px;
+    padding-right: 5px;   
+}
+
+.table td{
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 4px 4px 4px 0px; 
+}
+
 }
