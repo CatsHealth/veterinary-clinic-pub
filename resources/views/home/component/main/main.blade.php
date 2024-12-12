@@ -25,7 +25,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button class="btn btn-main">Записаться</button>
+                        <a href="{{ route('appointment') }}" class="btn btn-main">Записаться</a>
                     </form>                                       
                 </div>
                 <div class="banner-image">

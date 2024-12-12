@@ -1,5 +1,6 @@
 <x-layout>
     <x-admin>
+        <div class="conteiner">
         <h1>Список Записей</h1>
 
         <div class="sorting-buttons">
@@ -68,6 +69,7 @@
                 </form>
             </div>
         </div>
+    </div>
     </x-admin>
 </x-layout>
 <script>
