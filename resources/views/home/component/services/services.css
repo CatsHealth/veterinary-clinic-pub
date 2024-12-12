@@ -96,11 +96,14 @@
     
 }
 
+
 @media (max-width: 767px) {
     .services {
         margin-top: 80px;
     }
-
+    .services-btn {
+        text-align: center;
+    }
     .services-content {
         display: flex;
         flex-wrap: wrap;
@@ -165,6 +168,7 @@
 
     .services-image img{
         width: 320px;
+        margin-top: 40px;
     }
 
 

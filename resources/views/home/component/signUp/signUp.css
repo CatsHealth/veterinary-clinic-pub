@@ -26,7 +26,7 @@
     color:#4e4e4e;
     font-size:16px;
     font-family:Montserrat;
-    width:609px;
+    max-width:609px;
     margin-bottom: 30px;
 }
 
@@ -39,7 +39,7 @@
 
 .recording-paws img{
     margin-right: -380px;
-    margin-bottom: -480px;
+    margin-bottom: -300px;
 }
 
 @media (max-width: 1024px) {
@@ -67,6 +67,7 @@
     .recording-paws img{
         margin-right: -290px;
         margin-bottom: -100px;
+        width: 440px;
     }
 
     .recording-form {
@@ -107,8 +108,32 @@
     .recording-form {
         margin-top: 10px;
     }
+}
 
+@media (max-width: 625px) {
+    .recording-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
 
+    }
+
+    .recording-paws img{
+        width: 210px;
+    }
+
+    .recording-img img{
+        width: 280px;
+    }
+
+    .recording-paws img{
+        margin-right: -150px;
+        margin-bottom:-90px;
+    }
+
+    .recording-form {
+        margin-top: 5px;
+    }
 }
 
 
@@ -142,8 +167,8 @@
     }
 
     .recording-paws img{
-        margin-right: -140px;
-        margin-bottom: -100px;
+        margin-right: -200px;
+        margin-bottom: -20px;
     }
 
     .recording-form {

@@ -61,10 +61,11 @@
 
     .paws-background {
         width: 450px;
-        margin-right: -200px;
+        margin-right: -140px;
     }
     
 }
+
 
 @media (max-width: 767px) {
     .clinic {
@@ -95,6 +96,7 @@
     .paws-background {
         width: 340px;
         margin-top: 1px;
+        margin-right: -80px;
     }
 
 

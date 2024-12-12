@@ -3,6 +3,7 @@
 
 
 <section class="appointment-section">
+    <div class="container">
     <h2 class="appointment-title">Записаться</h2>
     <form action="{{ route('store') }}" method="POST" class="appointment-form" id="appointmentForm">
         @csrf
@@ -53,6 +54,7 @@
 
         <button type="submit" class="btn">Записаться</button>
     </form>
+    </div>
 </section>
 
 <script>

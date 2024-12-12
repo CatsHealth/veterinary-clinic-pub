@@ -1,7 +1,9 @@
 
 <x-layout>
     <x-admin>
+        <div class="container">
         <h1>Список Услуг</h1>
+        
         <form method="GET" action="{{ route('admin.services.index') }}">
             <label for="sort">Сортировка по названию:</label>
             <select name="sort" id="sort" onchange="this.form.submit()">
@@ -174,7 +176,7 @@
         </form>
 
 
-
+</div>
             </x-admin>
         </x-layout>
         
