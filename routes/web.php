@@ -66,6 +66,8 @@ Route::get('/admin/services', action: [ServiceController::class, 'adminIndex'])-
 Route::post('/admin/services', action: [ServiceController::class, 'adminIndex'])->name('admin.service.index');
 
 
+Route::patch('/consultations/{id}/soft-delete', [ConsultationController::class, 'softDelete'])->name('consultations.softDelete');
+Route::delete('/consultations/{id}', [ConsultationController::class, 'destroy'])->name('consultations.destroy');
 
 
 Route::put('/admin/service/{id}', [ServiceController::class, 'update'])->name('service.update');
