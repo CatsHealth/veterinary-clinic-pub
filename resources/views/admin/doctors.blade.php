@@ -39,13 +39,13 @@
                         <td>{{ $doctor->user->email ?? 'Нет аккаунта' }}</td>
                         <td>{{ $doctor->is_active ? 'Да' : 'Нет' }}</td> 
                         <td>
+                            <button type="button" class="btn-edit" onclick="openEditDoctorModal('{{ $doctor->id }}', '{{ addslashes($doctor->name) }}', '{{ addslashes($doctor->specialization) }}', '{{ $doctor->phone }}', '{{ $doctor->login }}', '{{ addslashes($doctor->password) }}')">Изменить</button>
                             <form action="{{ route('doctors.destroy', $doctor->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-delete" onclick="return confirm('Вы уверены, что хотите удалить этого доктора?')">Удалить</button>
                             </form>
-                            <button type="button" class="btn-edit" onclick="openEditDoctorModal('{{ $doctor->id }}', '{{ addslashes($doctor->name) }}', '{{ addslashes($doctor->specialization) }}', '{{ $doctor->phone }}', '{{ $doctor->login }}', '{{ addslashes($doctor->password) }}')">Изменить</button>
-                        </td>
+                             </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -100,8 +100,8 @@
                         @enderror
                     </div>
         
-                    <button type="submit" class="btn">Сохранить</button>
-                    <button type="button" class="btn" onclick="closeEditModal()">Отмена</button>
+                    <button type="submit" class="btn-sort">Сохранить</button>
+                    <button type="button" class="btn-sort" onclick="closeEditModal()">Отмена</button>
                 </form>
             </div>
         </div>
@@ -109,6 +109,7 @@
         <form class="doctor-form" action="{{ route('doctor.store') }}" method="POST">
             @csrf
             <div class="form-group">
+                <h2>Добавить Врача</h2>
                 <label for="name">ФИО:</label>
                 <input type="text" id="name" name="name" required maxlength="100" placeholder="Введите ФИО врача">
                 @error('name')
@@ -148,7 +149,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn">Сохранить</button>
+            <button type="submit" class="btn-sort">Сохранить</button>
             
         </form>
         </div>

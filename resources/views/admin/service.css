@@ -41,29 +41,33 @@
 }
 
 /* Таблица */
-.services-table {
+.services-table, .consultation-table, .appointments-table, .doctors-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-.services-table th, .services-table td {
+.services-table th, .consultation-table th, .appointments-table th, .doctors-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 16px; /* Увеличенный отступ */
+    color: #333; /* Темный цвет текста */
+}
+
+.services-table td, .consultation-table td, .appointments-table td, .doctors-table td {
     padding: 12px;
     text-align: left;
     border: 1px solid #ddd;
+    color: #555; /* Темный цвет текста для ячеек */
 }
 
-.services-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
-
-.services-table tr:nth-child(even) {
+.services-table tr:nth-child(even), .consultation-table tr:nth-child(even), .appointments-table tr:nth-child(even), .doctors-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.services-table tr:hover {
-    background-color: #f1f1f1;
+.services-table tr:hover, .consultation-table tr:hover, .appointments-table tr:hover, .doctors-table tr:hover {
+    background-color: #e0e7ff; /* Яркий цвет фона при наведении */
+    color: #000; /* Темный цвет текста при наведении */
 }
 
 /* Стиль для кнопок редактирования и удаления */
@@ -90,59 +94,93 @@
     background-color: #c82333;
 }
 
-/* Модальное окно */
+/* Обертка модального окна */
 .modal {
-    display: none;
-    position: fixed;
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированная позиция */
+    top: 50%; /* Сдвиг вниз на 50% */
+    left: 50%; /* Сдвиг вправо на 50% */
+    transform: translate(-50%, -50%); /* Центрирование */
+    width: 80%; /* Ширина модального окна */
+    max-width: 600px; /* Максимальная ширина */
+    background-color: rgba(255, 255, 255, 1); /* Белый фон */
+    padding: 0; /* Убираем отступы */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+    z-index: 1000; /* Установка z-index выше остальных элементов */
+}
+/* Стили для заголовков полей */
+.form-group label {
+    font-weight: bold; /* Полужирный текст для заголовков */
+    display: block; /* Заставить заголовки занимать всю ширину */
+    margin-bottom: 5px; /* Отступ снизу для разделения от поля ввода */
+}
+
+/* Другие стили оставляем как есть ... */
+
+/* Фон модального окна */
+.modal-overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированная позиция */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    z-index: 999; /* Установка z-index ниже модального окна */
 }
 
+/* Контент модального окна */
 .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 4px;
-    width: 500px;
-    max-width: 100%;
+    background-color: #fff; /* Белый фон */
+    padding: 20px; /* Отступы */
+    border-radius: 8px; /* Скругленные углы */
+    width: 100%; /* Ширина на 100% относительно родителя */
+    max-height: 80vh; /* Ограничение высоты */
+    overflow-y: auto; /* Прокрутка по вертикали при переполнении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для глубины */
+    position: relative; /* Позволяет корректно позиционировать кнопку закрытия */
 }
 
+/* Кнопка закрытия */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+    color: #aaa; /* Цвет кнопки закрытия */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    right: 15px; /* Отступ справа */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: bold; /* Полужирный текст */
+    cursor: pointer; /* Указатель курсора */
 }
 
+/* Эффекты при наведении на кнопку закрытия */
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: #000; /* Черный цвет при наведении */
 }
 
 /* Стили для ошибок */
 .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+    color: red; /* Красный цвет текста */
+    font-size: 12px; /* Размер шрифта ошибок */
+    margin-top: 5px; /* Отступ сверху */
 }
 
-/* Стили для изображений */
+/* Стили для полей ввода */
 .form-control {
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 4px;
-    width: 100%;
+    border: 1px solid #ccc; /* Светло-серая граница */
+    padding: 10px; /* Отступы */
+    font-size: 14px; /* Размер шрифта */
+    border-radius: 4px; /* Скругленные углы */
+    width: 100%; /* Заполнение всей ширины родительского элемента */
+    box-sizing: border-box; /* Учет границ в общей ширине */
+    appearance: none; /* Убираем стандартный стиль браузера */
+    background: url('path/to/your-arrow-icon.svg') no-repeat right; /* Добавление иконки стрелки */
+    background-size: 12px; /* Размер иконки стрелки */
 }
 
+/* Стиль для текста ошибок */
 .text-danger {
-    color: red;
-    font-size: 12px;
+    color: red; /* Красный цвет для ошибок */
+    font-size: 12px; /* Размер текста для ошибок */
 }
