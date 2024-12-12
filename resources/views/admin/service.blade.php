@@ -1,9 +1,7 @@
 <x-layout>
     <x-admin>
+        <div class="container">
         <h1>Список Услуг</h1>
-
-
-
         <div class="sorting-buttons">
             <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
                 <button type="submit" name="sort" value="asc" class="btn-sort">От А до Я</button>
@@ -18,6 +16,7 @@
                 <button type="submit" name="sort" value="oldest" class="btn-sort">От старых к новым</button>
             </form>
         </div>
+
 
         <table class="services-table">
             <thead>
@@ -256,21 +255,20 @@
     </div>
                 <button type="submit" class="btn">Сохранить</button>
         </form>
+</div>
+            </x-admin>
+        </x-layout>
+        
+        <script>
+function openEditServiceModal(id, name, price, duration, caption, recommendation, description) {
+    document.getElementById('edit_service_id').value = id;
+    document.getElementById('edit_name').value = name;
+    document.getElementById('edit_price').value = price;
+    document.getElementById('edit_duration').value = duration;
+    document.getElementById('edit_caption').value = caption;
+    document.getElementById('edit_recommendation').value = recommendation;
+    document.getElementById('edit_description').value = description;
 
-
-
-    </x-admin>
-</x-layout>
-
-<script>
-    function openEditServiceModal(id, name, price, duration, caption, recommendation, description, doctorId) {
-        document.getElementById('edit_service_id').value = id;
-        document.getElementById('edit_name').value = name;
-        document.getElementById('edit_price').value = price;
-        document.getElementById('edit_duration').value = duration;
-        document.getElementById('edit_caption').value = caption;
-        document.getElementById('edit_recommendation').value = recommendation;
-        document.getElementById('edit_description').value = description;
 
         // Установите выбранного врача
         document.getElementById('edit_doctor').value = doctorId;
