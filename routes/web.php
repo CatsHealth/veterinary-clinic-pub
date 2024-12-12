@@ -44,7 +44,7 @@ Route::get('/admin/doctors', [AdminController::class, 'doctors'])->name('doctors
 Route::get('/admin/consultation', [AdminController::class, 'consultations'])->name('admin.consultations');
 
 Route::get('/admin/index', [AppointController::class, 'store'])->name('appointments.store')->middleware(RoleMiddleware::class . ':admin');
-Route::get('/admin/consultations', [ConsultationController::class, 'index'])->name('admin.consultations');
+Route::get('/admin/consultations', [ConsultationController::class, 'index'])->name('admin.consultations')->middleware(RoleMiddleware::class . ':admin');
 
 //Route::get('/api/dates/{serviceId}/{data}', [AppointController::class, 'getAllDatesInMonth']);
 Route::get('/api/get-available-times ', [AppointController::class, 'getAvailableTimes'])->name('getTimeIntervals');
