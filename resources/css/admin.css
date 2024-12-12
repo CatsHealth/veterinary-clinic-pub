@@ -101,3 +101,37 @@ form label {
     margin-bottom: 20px;
 }
 /*.формы*/
+
+
+@media (max-width: 1024px) {
+    form label {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }   
+    
+    .recording-form {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    form label {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }  
+
+    .recording-form {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    form label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    } 
+
+    .recording-form {
+        margin-top: 10px;
+    }
+}

@@ -108,6 +108,7 @@ footer{
 .footer-content{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .footer-info{
@@ -251,6 +252,239 @@ footer{
     font-family: Montserrat;
     margin-top: 15px;
 }
+
+
+
+@media (max-width: 1024px) {
+    .services-list-item a{
+        font-size: 18px;
+    }
+    
+    .services-list-item p{
+        font-size: 16px;
+    }
+
+    .row {
+        margin-top: 10px;
+        column-gap: 16px;  
+    }
+    /* Логотип */
+    .logo {
+        width: 60px;
+    }
+    /* Навигация */
+    .nav {
+        font-size: 16px;
+        gap: 24px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 8px 13px;
+    }
+
+    footer{
+        margin-top: 90px;
+    }
+    
+    .footer-info{
+        margin-top: 50px;
+    }
+    
+    .footer-info h3{
+        font-size:22px;
+    }
+    
+    .footer-info a{
+        font-size:18px;
+        margin-left: 12px;
+        margin-top: 20px;
+    }
+    
+    .footer-nav{
+        gap: 25px;
+        margin-top: 50px;
+    }
+    
+    .map{
+        margin-top: 50px;
+    }
+
+    .footer-nav a{
+        font-size:18px;
+    }
+
+    .copyright p{
+        font-size:14px;
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .conteiner{
+        margin: 0 90px;
+    }
+
+    .services-list-item a{
+        font-size: 16px;
+    }
+    
+    .services-list-item p{
+        font-size: 14px;
+    }
+
+    .row {
+        column-gap: 14px;  
+    }
+    /* Логотип */
+    .logo {
+        width: 50px;
+    }
+    /* Навигация */
+    .nav {
+        font-size: 14px;
+        gap: 22px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 6px 11px;
+    }
+
+    footer{
+        margin-top: 80px;
+    }
+    
+    .footer-info{
+        margin-top: 40px;
+    }
+    
+    .footer-info h3{
+        font-size:20px;
+    }
+    
+    .footer-info a{
+        font-size:16px;
+        margin-left: 10px;
+        margin-top: 18px;
+    }
+    
+    .footer-nav{
+        gap: 20px;
+        margin-top: 45px;
+    }
+    
+    .map{
+        margin-top: 45px;
+    }
+
+    .footer-nav a{
+        font-size:16px;
+    }
+
+    .copyright p{
+        font-size:12px;
+    }
+
+}
+
+
+@media (max-width: 575px) {
+
+    
+    .footer-info{
+        margin: auto;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    .footer-nav{
+        margin: auto;
+        text-align: center;
+        padding:20px 0;
+    }
+    
+  }
+
+
+@media (max-width: 480px) {
+    .conteiner{
+        margin: 0 60px;
+    }
+
+    .services-list-item a{
+        font-size: 14px;
+    }
+    
+    .services-list-item p{
+        font-size: 12px;
+    }
+
+    .row {
+        column-gap: 14px;  
+    }
+    /* Логотип */
+    .logo {
+        width: 40px;
+    }
+    /* Навигация */
+    .nav {
+        font-size: 12px;
+        gap: 20px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    footer{
+        margin-top: 60px;
+    }
+    
+    .footer-info{
+        margin-top: 35px;
+    }
+    
+    .footer-info h3{
+        font-size:18px;
+    }
+    
+    .footer-info a{
+        font-size:14px;
+        margin-left: 8px;
+        margin-top: 16px;
+    }
+    
+    .footer-nav{
+        gap: 18px;
+        margin-top: 40px;
+    }
+    
+    .map{
+        margin-top: 40px;
+    }
+
+    .footer-nav a{
+        font-size:14px;
+    }
+
+    .copyright p{
+        font-size:12px;
+    }
+
+    .footer-info{
+        margin: auto;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    .footer-nav{
+        margin: auto;
+        text-align: center;
+        padding:10px 0;
+    }
+  }
+
 
 
 
