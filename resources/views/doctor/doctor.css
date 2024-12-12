@@ -1,0 +1,104 @@
+.calendar{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+#dateContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 350px;
+    width: 100%;
+}
+
+.form_radio_btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.form_radio_btn:hover {
+    background-color:#e9c0cc;
+    transform: translateY(-3px);
+}
+
+input[type="radio"].appointment-radio {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: transparent;
+    color: #f49db6;
+    font-weight: bold;
+}
+
+.appointment-label-radio {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+#appointmentsList {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#appointmentsList h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#appointmentsList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#appointmentsList ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+#appointmentsList ul li:last-child {
+    border-bottom: none;
+}
+
+#appointmentsList p {
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #appointmentsList {
+        width: 100%;
+    }
+
+    #dateContainer {
+        justify-content: center;
+    }
+}
