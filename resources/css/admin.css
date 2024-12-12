@@ -1,3 +1,33 @@
+/*sidebar*/
+
+.sidebar{
+    max-width: 1416px;
+    margin: 10px;
+}
+.sidebar ul{
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+.sidebar ul li a{
+    color: #949393;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidebar ul li a:hover{
+    color: #cccccc;
+}
+.sidebar ul li a.selectid{
+    color: #f6a8b5;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidebar ul li a.selectid:hover{
+    color: #e07486;
+    text-decoration: none;
+    transition: 0.1s;
+}
+/*.sidebar*/
 
 /*формы*/
 form {
