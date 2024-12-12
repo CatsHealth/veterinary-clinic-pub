@@ -10,7 +10,7 @@
                 <div class="recording-img">
                     <img src="{{ asset('img/recording.png') }}" alt="recording">
                 </div>
-                <form action="" method="POST">
+                <form action="{{ route('consultation.store') }}" method="POST"> <!-- Укажите маршрут -->
                     @csrf
                     <div class="recording-form">
                         <div class="recording-name">
@@ -24,13 +24,10 @@
                         </div>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-                    <p>Уже знаете к кому хотите записаться? Переходите на полную запись и выбирайте нужное время и день!
-                    </p>
-                    <p>Если хотите получить консультации то оставьте заявку здесь. Мы перезвоним вам в ближайшее время!
-                    </p>
+                    <p>Уже знаете к кому хотите записаться? Переходите на полную запись и выбирайте нужное время и день!</p>
+                    <p>Если хотите получить консультации, то оставьте заявку здесь. Мы перезвоним вам в ближайшее время!</p>
                     <button type="submit" class="btn">Записаться</button>
                 </form>
-
             </div>
         </div>
     </div>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Appointments;
 use App\Models\Doctor;
 use App\Models\Service;
+use App\Models\Consultation;
 use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
@@ -35,5 +37,9 @@ class AdminController extends Controller
         $appointments = Appointments::all();
         return view('admin.appointments', compact('appointments'));
     }
-
+    public function consultations()
+    {
+        $consultations = Consultation::all(); 
+        return view('admin.consultations', compact('consultations'));
+    }
 }

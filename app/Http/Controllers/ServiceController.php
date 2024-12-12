@@ -17,13 +17,21 @@ class ServiceController extends Controller
 
     public function adminIndex(Request $request)
     {
+        $query = Service::query();
+
+        // Фильтр по врачу
+        if ($request->filled('doctor_id')) {
+            $doctorId = $request->input('doctor_id');
+            $query->whereHas('doctors', function ($subQuery) use ($doctorId) {
+                $subQuery->where('doctors.id', $doctorId); 
+            });
+        }
+    
         $sort = $request->input('sort');
+        
+        $orderBy = 'name'; 
+        $direction = 'asc'; 
     
-        // Определяем порядок сортировки по умолчанию
-        $orderBy = 'name'; // Поле, по которому будет происходить сортировка (например, 'name')
-        $direction = 'asc'; // Направление сортировки по умолчанию
-    
-        // Устанавливаем параметры сортировки в зависимости от значения sort
         switch ($sort) {
             case 'asc':
                 $direction = 'asc';
@@ -32,27 +40,24 @@ class ServiceController extends Controller
                 $direction = 'desc';
                 break;
             case 'newest':
-                $orderBy = 'created_at'; // или другое поле, показывающее дату создания
-                $direction = 'desc';
+                $orderBy = 'created_at'; 
+                $direction = 'desc'; // скорректировано на 'desc' для "новейших"
                 break;
             case 'oldest':
-                $orderBy = 'created_at'; // или другое поле, показывающее дату создания
-                $direction = 'asc';
+                $orderBy = 'created_at'; 
+                $direction = 'asc'; // скорректировано на 'asc' для "самых старых"
                 break;
             default:
-                $direction = 'asc'; // Значение по умолчанию
+                $direction = 'asc'; 
                 break;
         }
     
-        // Пример того, как получить данные (подразумевается, что у вас есть модель Service)
-        $services = Service::orderBy($orderBy, $direction)->get();
+        // Применение сортировки к запросу
+        $services = $query->orderBy($orderBy, $direction)->get();
         $doctors = Doctor::all();
     
-        // Определяем переменную $sortDirection
-        $sortDirection = $direction; // Теперь у нас есть переменная для сортировки
-    
         // Возвращаем представление с данными
-        return view('admin.service', compact('services', 'sortDirection', 'doctors'));
+        return view('admin.service', compact('services', 'direction', 'doctors'));
     }
     
     

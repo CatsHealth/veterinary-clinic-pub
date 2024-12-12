@@ -99,6 +99,7 @@
                     </div>
         
                     <button type="submit" class="btn">Сохранить</button>
+                    <button type="button" class="btn" onclick="closeEditModal()">Отмена</button>
                 </form>
             </div>
         </div>
@@ -146,6 +147,7 @@
             </div>
 
             <button type="submit" class="btn">Сохранить</button>
+            
         </form>
         
     </x-admin>
