@@ -63,7 +63,8 @@
                     <input type="date" name="date" id="date" required>
                     <label for="time">Время:</label>
                     <input type="time" name="time" id="time" required>
-                    <button type="submit">Сохранить изменения</button>
+                    <button type="submit">Сохранить </button>
+                    <button type="button" class="btn" onclick="closeEditModal()">Отмена</button>
                 </form>
             </div>
         </div>

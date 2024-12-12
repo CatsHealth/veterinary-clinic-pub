@@ -94,8 +94,8 @@ class AppointController extends Controller
 
         // Создание новой записи
         Appointments::create($request->all());
-        return back();
-    }
+        
+        return redirect()->route('consultations.index')->with('success', 'Запись успешно добавлена!');    }
 
     
     public function getTimeIntervals($service_id, $date)

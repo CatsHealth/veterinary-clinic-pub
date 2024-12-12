@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AppointController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
@@ -19,9 +20,12 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
 Route::get('/appointment', [AppointController::class, 'index'])->name('appointment');
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
-
+Route::post('/appointment/record', [AppointController::class, 'store'])->name('appointment.record');
 //Формы пользователя
 Route::post('/store', [AppointController::class, 'store'])->name('store');
+
+Route::post('/signUp', [ConsultationController::class, 'store'])->name('consultation.store');
+
 
 //Авторизация
 Route::get('/auth', [AuthController::class, 'index'])->name('auth');
@@ -37,8 +41,10 @@ Route::get('/schedule', [EmployeeController::class, 'index'])->name('schedule')-
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware(RoleMiddleware::class . ':admin');
 Route::get('/admin/service', [AdminController::class, 'service'])->name('service')->middleware(RoleMiddleware::class . ':admin');
 Route::get('/admin/doctors', [AdminController::class, 'doctors'])->name('doctors')->middleware(RoleMiddleware::class . ':admin');
-Route::get('/admin/index', [AppointController::class, 'store'])->name('appointments.store')->middleware(RoleMiddleware::class . ':admin');
+Route::get('/admin/consultation', [AdminController::class, 'consultations'])->name('admin.consultations');
 
+Route::get('/admin/index', [AppointController::class, 'store'])->name('appointments.store')->middleware(RoleMiddleware::class . ':admin');
+Route::get('/admin/consultations', [ConsultationController::class, 'index'])->name('admin.consultations');
 
 //Route::get('/api/dates/{serviceId}/{data}', [AppointController::class, 'getAllDatesInMonth']);
 Route::get('/api/get-available-times ', [AppointController::class, 'getAvailableTimes'])->name('getTimeIntervals');
@@ -50,9 +56,8 @@ Route::post('//admin/index', [AppointController::class, 'store'])->name('appoint
 
 
 Route::resource('appointments', AppointController::class);
-
 Route::resource('service', ServiceController::class);
-
+Route::resource('consultations', ConsultationController::class);
 Route::resource('doctors', DoctorController::class);
 
 Route::get('//admin/index', action: [AppointController::class, 'adminIndex'])->name('admin.index');
@@ -67,5 +72,8 @@ Route::put('/admin/service/{id}', [ServiceController::class, 'update'])->name('s
 
 Route::put('//admin/index/{id}', [AppointController::class, 'update'])->name('appointments.update');
 Route::put('/admin/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update');
+
+Route::resource('appointments', AppointController::class);
+Route::resource('consultations', ConsultationController::class);
 
 

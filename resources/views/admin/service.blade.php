@@ -4,6 +4,18 @@
         <h1>Список Услуг</h1>
         <div class="sorting-buttons">
             <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
+                <label for="doctor">Выберите врача:</label>
+                <select id="doctor" name="doctor_id" class="service-doctor-select">
+                    <option value="">Все врачи</option>
+                    @foreach($doctors as $doctor)
+                        <option value="{{ $doctor->id }}" {{ request()->get('doctor_id') == $doctor->id ? 'selected' : '' }}>
+                            {{ $doctor->name }}
+                        </option>
+                    @endforeach
+                </select>
+                <button type="submit" class="btn-search">Поиск</button>
+            </form>
+            <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
                 <button type="submit" name="sort" value="asc" class="btn-sort">От А до Я</button>
             </form>
             <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
@@ -67,20 +79,20 @@
                 <span class="close" onclick="closeEditModal()">&times;</span>
                 <h2>Редактировать Услугу</h2>
                 <form class="service-form" id="editServiceForm" method="POST"
-                    action="{{ route('service.update', '') }}">
+                      action="{{ route('service.update', '') }}">
                     @csrf
                     @method('PUT')
                     <input type="hidden" id="edit_service_id" name="id" value="">
-
+        
                     <div class="form-group service-name">
                         <label for="edit_name">Название:</label>
                         <input type="text" id="edit_name" name="name" class="service-name-input" required
-                            maxlength="100" placeholder="Введите название услуги">
+                               maxlength="100" placeholder="Введите название услуги">
                         @error('name')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-doctor">
                         <label for="edit_doctor">Врач:</label>
                         <select id="edit_doctor" name="doctor_id" class="service-doctor-select" required>
@@ -93,53 +105,54 @@
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-price">
                         <label for="edit_price">Цена:</label>
                         <input type="number" id="edit_price" name="price" min="0" class="service-price-input" required
-                            placeholder="Введите цену услуги">
+                               placeholder="Введите цену услуги">
                         @error('price')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-duration">
                         <label for="edit_duration">Продолжительность:</label>
                         <input type="number" id="edit_duration" name="duration" min="0" class="service-duration-input"
-                            required placeholder="Введите продолжительность услуги">
+                               required placeholder="Введите продолжительность услуги">
                         @error('duration')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-caption">
                         <label for="edit_caption">Заголовок:</label>
                         <input type="text" id="edit_caption" name="caption" class="service-caption-input" required
-                            maxlength="255" placeholder="Введите заголовок">
+                               maxlength="255" placeholder="Введите заголовок">
                         @error('caption')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-recommendation">
                         <label for="edit_recommendation">Рекомендация:</label>
                         <textarea id="edit_recommendation" name="recommendation" class="service-recommendation-textarea"
-                            placeholder="Введите рекомендации"></textarea>
+                                  placeholder="Введите рекомендации"></textarea>
                         @error('recommendation')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <div class="form-group service-description">
                         <label for="edit_description">Описание:</label>
                         <textarea id="edit_description" name="description" class="service-description-textarea"
-                            placeholder="Введите описание услуги"></textarea>
+                                  placeholder="Введите описание услуги"></textarea>
                         @error('description')
                             <div class="error-message">{{ $message }}</div>
                         @enderror
                     </div>
-
+        
                     <button type="submit" class="btn">Сохранить изменения</button>
+                    <button type="button" class="btn" onclick="closeEditModal()">Отмена</button>
                 </form>
             </div>
         </div>
