@@ -3,6 +3,7 @@
 <x-layout>
     <x-admin>
         <div class="conteiner">
+
             <h1>Список Услуг</h1>
             <div class="sorting-buttons">
                 <form method="GET" action="{{ route('admin.services.index') }}" style="display: inline;">
@@ -35,10 +36,12 @@
             <table class="services-table">
                 <thead>
                     <tr>
+
                         <th>Услуга</th>
                         <th>Врач</th>
                         <th>Цена</th>
                         <th>Действия</th>
+
                     </tr>
                 </thead>
                 <tbody>
