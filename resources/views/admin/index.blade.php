@@ -39,13 +39,13 @@
                         <td>{{ $appointment->phone }}</td>
                         <td>{{ optional($appointment->service)->name }}</td>
                         <td>
+                            <button type="button" class="btn-edit" onclick="openEditModal({{ $appointment }})">Изменить</button>
                             <form action="{{ route('appointments.destroy', $appointment->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-delete" onclick="return confirm('Вы уверены, что хотите удалить эту запись?')">Удалить</button>
                             </form>
-                            <button type="button" class="btn-edit" onclick="openEditModal({{ $appointment }})">Изменить</button>
-                        </td>
+                             </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -65,8 +65,8 @@
                     <input type="date" name="date" id="date" required>
                     <label for="time">Время:</label>
                     <input type="time" name="time" id="time" required>
-                    <button type="submit">Сохранить </button>
-                    <button type="button" class="btn" onclick="closeEditModal()">Отмена</button>
+                    <button type="submit" class="btn-sort">Сохранить </button>
+                    <button type="button" class="btn-sort" onclick="closeEditModal()">Отмена</button>
                 </form>
             </div>
         </div>
