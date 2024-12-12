@@ -37,12 +37,16 @@ class ConsultationController extends Controller
         $consultation = Consultation::findOrFail($id);
         return view('admin.consultation', compact('consultation'));
     }
-    public function destroy($id)
-    {
+    public function softDelete($id) {
         $consultation = Consultation::findOrFail($id);
-        $consultation->delete();
-
-        return back()->with('success', 'Консульация успешно удалена.');
+        $consultation->delete(); // Это мягкое удаление
+        return redirect()->back()->with('success', 'Консультация подтверждена.');
+    }
+    
+    public function destroy($id) {
+        $consultation = Consultation::withTrashed()->findOrFail($id);
+        $consultation->forceDelete(); // Это жесткое удаление
+        return redirect()->back()->with('success', 'Консультация удалена.');
     }
 
 }
