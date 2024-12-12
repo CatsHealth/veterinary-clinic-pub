@@ -273,7 +273,7 @@
         </x-layout>
         
         <script>
-function openEditServiceModal(id, name, price, duration, caption, recommendation, description) {
+function openEditServiceModal(id, name, price, duration, caption, recommendation, description, doctorId) {
     document.getElementById('edit_service_id').value = id;
     document.getElementById('edit_name').value = name;
     document.getElementById('edit_price').value = price;
@@ -282,14 +282,12 @@ function openEditServiceModal(id, name, price, duration, caption, recommendation
     document.getElementById('edit_recommendation').value = recommendation;
     document.getElementById('edit_description').value = description;
 
+    // Установите выбранного врача
+    document.getElementById('edit_doctor').value = doctorId;
 
-        // Установите выбранного врача
-        document.getElementById('edit_doctor').value = doctorId;
-
-        document.getElementById('editServiceModal').style.display = 'block';
-        document.getElementById('editServiceForm').action = "{{ route('service.update', '') }}" + '/' + id;
-    }
-
+    document.getElementById('editServiceModal').style.display = 'block';
+    document.getElementById('editServiceForm').action = "{{ route('service.update', '') }}" + '/' + id;
+}
 
     function closeEditModal() {
         document.getElementById('editServiceModal').style.display = 'none';
