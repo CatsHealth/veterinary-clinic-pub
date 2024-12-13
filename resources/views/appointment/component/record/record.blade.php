@@ -68,35 +68,33 @@
     });
 
     function showServiceChange() {
-        var selectElement = document.getElementById('service_id');
-        var serviceId = selectElement.value;
+    var selectElement = document.getElementById('service_id');
+    var serviceId = selectElement.value;
 
-        // Получаем выбранную дату из радиокнопок
-        var selectedDate = document.querySelector('input[name="date"]:checked');
-        if (!selectedDate) {
-            console.error('Дата не выбрана');
-            return; // Если дата не выбрана, выходим из функции
-        }
-        var date = selectedDate.value;
-
-        fetch(`/api/get-available-times?service_id=${serviceId}&date=${date}`)
-            .then(response => response.json())
-            .then(data => {
-                var timeSelect = document.getElementById('time');
-                timeSelect.innerHTML = ''; // Очищаем предыдущие опции
-
-                data.forEach(function (time) {
-                    var option = document.createElement('option');
-                    option.value = time;
-                    option.textContent = time;
-                    timeSelect.appendChild(option);
-
-                });
-                console.log('Все ок');
-            })
-            .catch(error => console.error('Ошибка:', error));
-
+    var selectedDate = document.querySelector('input[name="date"]:checked');
+    if (!selectedDate) {
+        console.error('Дата не выбрана');
+        return;
     }
+    var date = selectedDate.value;
+
+    // Передаем service_id в запрос
+    fetch(`/api/get-available-times?service_id=${serviceId}&date=${date}`)
+        .then(response => response.json())
+        .then(data => {
+            var timeSelect = document.getElementById('time');
+            timeSelect.innerHTML = ''; // Очищаем предыдущие опции
+
+            data.forEach(function (time) {
+                var option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                timeSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
+
 
 
     document.addEventListener('DOMContentLoaded', function () {

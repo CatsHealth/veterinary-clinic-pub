@@ -13,11 +13,11 @@ class AppointController extends Controller
     use AppointmentTrait;
     public function index(Request $request)
     {
-        
-
+    
         $services = Service::all();
+        $defaultServiceId = $services->first() ? $services->first()->id : null;
         $dates = $this->getAllDatesInMonth(date('m'), date('Y'));
-        $times = $this->getTimeIntervals(3, Appointments::all());
+        $times = $this->getTimeIntervals( $defaultServiceId , Appointments::all());
 
         return view('appointment.appointment', compact('services', 'dates', 'times'));
     }
