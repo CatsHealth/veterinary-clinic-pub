@@ -116,7 +116,7 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+        
             <div class="form-group">
                 <label for="specialization">Специализация:</label>
                 <input type="text" id="specialization" name="specialization" required maxlength="100" placeholder="Введите специализацию">
@@ -124,33 +124,32 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+        
             <div class="form-group">
                 <label for="phone">Телефон:</label>
-                <input type="phone" id="phone" name="phone" required maxlength="100" placeholder="Введите номер телефона">
+                <input type="tel" id="phone" name="phone" required maxlength="100" placeholder="Введите номер телефона">
                 @error('phone')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+        
             <div class="form-group">
-                <label for="login">Логин</label>
-                <input type="login" id="login" name="login" required maxlength="100" placeholder="Введите логин">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" required maxlength="100" placeholder="Введите логин">
                 @error('login')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+        
             <div class="form-group">
-                <label for="password">Пароль</label>
+                <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password" required maxlength="100" placeholder="Введите пароль">
                 @error('password')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
-            <button type="submit" class="btn-sort">Сохранить</button>
-            
+        
+            <button type="submit" class="btn-sort">Сохранить</button>  
         </form>
         </div>
     </x-admin>

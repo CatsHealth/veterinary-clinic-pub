@@ -170,7 +170,7 @@
                 @csrf
 
                 <div class="form-group service-name">
-                    <h2>Создать Услугу</h2>
+                    <h2>Создать услугу</h2>
                     <label for="name">Название:</label>
                     <input type="text" id="name" name="name" class="service-name-input" required maxlength="100"
                         value="{{ old('name') }}" placeholder="Введите название услуги">
