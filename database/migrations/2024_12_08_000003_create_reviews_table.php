@@ -12,8 +12,8 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('text');
-            $table->string('photo')->nullable(); // Поле может быть пустым
-            $table->timestamps(); // Добавляет поля created_at и updated_at
+            $table->integer('estimation')->nullable(); 
+            $table->timestamps(); 
         });
     }
 

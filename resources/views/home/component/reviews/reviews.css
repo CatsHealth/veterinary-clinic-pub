@@ -2,10 +2,17 @@
     margin-top: 100px;
     position: relative;   
 }
+
+.reviews-container {
+    max-width: 1216px; /* Максимальная ширина контейнера для отзывов */
+    margin: 0 auto; /* Центрирование контейнера на странице */
+    padding: 0 15px; /* Горизонтальные отступы */
+}
+
 .swiper {
     width: 100%;
-    max-width: 1216px;
 }
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -14,6 +21,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .button-prev, .button-next {
     position: absolute;
     top: 50%;
@@ -23,24 +31,24 @@
     z-index: 10;
     cursor: pointer;
 }
+
 .button-prev {
-    left: -70px;
+    left: -80px; /* Отступ от левого края */
 }
+
 .button-next {
-    right: -70px;
+    right: -80px; /* Отступ от правого края */
 }
+
 .swiper-button-next img,
 .swiper-button-prev img {
-    width: 30px;
-    height: auto;
+    width: 30px; /* Размер иконок для кнопок */
+    height: auto; /* Высота автоматически подстраивается */
 }
-.container {
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-.container-swiper{
-    margin-top: 100px;
+
+.container-swiper {
+    position: relative; /* Позиционирование относительно кнопок */
+    margin-top: 100px; /* Отступ сверху для контейнера со слайдами */
 }
 
 .reviews-list-item {
@@ -53,19 +61,20 @@
 
 .reviews-name {
     display: flex;
-    gap: 2%;
+    gap: 2%; /* Отступ между именем и оценками */
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .reviews-name h3 {
-    font-size:20px;
-    font-family:Montserrat;
+    font-size: 20px;
+    font-family: Montserrat;
     font-weight: bold;
     color: #4E4E4E;
     margin-right: auto;
 }
+
 .reviews h2 {
     color: #4e4e4e;
     font-size: 55px;
@@ -80,15 +89,13 @@
     width: 20px;
 }
 
-
 .reviews-text p {
-    font-size:16px;
-    font-family:Montserrat;
+    font-size: 16px;
+    font-family: Montserrat;
     color: #555;
     line-height: 1.5;
     margin-top: 10px;
 }
-
 
 @media (max-width: 1024px) {
     .reviews h2 {
@@ -96,7 +103,7 @@
     }
 
     .reviews-name h3 {
-        font-size:18px;
+        font-size: 18px;
     }
     
     .star-rating {
@@ -108,7 +115,7 @@
     }
         
     .reviews-text p {
-        font-size:14px;
+        font-size: 14px;
         margin-top: 8px;
     }
 
@@ -117,12 +124,12 @@
     }
 
     .button-prev {
-        left: -50px;
+        left: -60px; /* Изменено для более близкого размещения */
     }
+
     .button-next {
-        right: -50px;
+        right: -60px; /* Изменено для более близкого размещения */
     }
- 
 }
 
 @media (max-width: 767px) {
@@ -135,7 +142,7 @@
     }
 
     .reviews-name h3 {
-        font-size:16px;
+        font-size: 16px;
     }
     
     .star-rating {
@@ -149,16 +156,7 @@
     .container-swiper {
         margin-top: 60px;
     }
-
-    .button-prev {
-        left: -50px;
-    }
-    .button-next {
-        right: -50px;
-    }
-
 }
-
 
 @media (max-width: 480px) {
     .reviews {
@@ -170,33 +168,28 @@
     }
 
     .reviews-name h3 {
-        font-size:14px;
+        font-size: 14px;
     }
     
     .star-rating {
         width: 14px;
     }
     
-    
     .reviews-text p {
-        font-size:12px;
+        font-size: 12px;
         margin-top: 6px;
     }
- 
+    
     .reviews-list-item {
-        width: 60%;
+        width: 100%; /* Увеличено до 100% для мобильных устройств */
     }
 
     .container-swiper {
         margin-top: 30px;
     }
 
-    .button-prev {
+    .button-prev, .button-next {
         left: -30px;
-    }
-    .button-next {
         right: -30px;
     }
-
 }
-
