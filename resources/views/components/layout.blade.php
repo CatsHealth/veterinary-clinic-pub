@@ -36,7 +36,7 @@
                     <a href="{{ route('app') }}"><img src="{{ asset('img/logo.svg') }}" alt="Logo" /></a>
                 </div>
                 <nav class="nav">
-                    <a href="{{ route('app') }}" @if (request()->is('/')) class="selectid" @endif>Главное</a>
+                    <a href="{{ route('app') }}" @if (request()->is('/')) class="selectid" @endif>Главная</a>
                     <a href="{{ route('services') }}" @if (request()->is('services*')) class="selectid"
                     @endif>Услуги</a>
                     <a href="{{ route('appointment') }}" @if (request()->is('appointment*')) class="selectid"

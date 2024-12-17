@@ -29,7 +29,7 @@
 .values-content{
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     margin: 50px 0;
 }
@@ -95,6 +95,7 @@
 
     .values-content {
         margin: 28px 0;
+        flex-wrap: wrap;
     }
 
     .values-text img{
