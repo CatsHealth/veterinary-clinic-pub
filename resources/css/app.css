@@ -53,6 +53,7 @@ a:hover {
     align-items: center;
 }
 
+
 /* Навигация */
 .nav {
     font-size: 18px;
@@ -235,8 +236,8 @@ footer {
 
 .container,
 .conteiner {
-    margin: 0 auto;
-    max-width: 1400px;
+    margin:  80px;
+    max-width: 1920px;
 }
 
 h1, h2, h3, p, a {
@@ -355,11 +356,11 @@ h1, h2, h3, p, a {
         font-size: 16px;
     }
 
-    .services-list-item {
+    /* .services-list-item {
         padding: 20px;
         width: 190px;
         margin: 0 25px 25px 0;
-    }
+    } */
 
     .row {
         margin-top: 10px;
@@ -489,11 +490,11 @@ h1, h2, h3, p, a {
         font-size: 14px;
     }
 
-    .services-list-item {
+    /* .services-list-item {
         padding: 15px;
         width: 160px;
         margin: 0 20px 20px 0;
-    }
+    } */
 
     .row {
         column-gap: 14px;
@@ -616,11 +617,11 @@ h1, h2, h3, p, a {
         font-size: 12px;
     }
 
-    .services-list-item {
+    /* .services-list-item {
         padding: 15px;
         width: 140px;
         margin: 0 5px 5px 0;
-    }
+    } */
 
     .row {
         column-gap: 14px;
@@ -728,5 +729,15 @@ h1, h2, h3, p, a {
     .service-img img {
         width: 280px;
         margin-top: 8px;
+    }
+}
+
+@media (max-width: 400px){
+    .logo img{
+        width: 40px;
+        height: 100%;
+    }
+    .nav {
+        gap: 10px;
     }
 }
