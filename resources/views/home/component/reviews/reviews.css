@@ -187,9 +187,11 @@
     .container-swiper {
         margin-top: 30px;
     }
-
-    .button-prev, .button-next {
-        left: -30px;
-        right: -30px;
+    .button-prev{
+        left: -20px;
+    }
+    .button-next {
+        right: -20px;
+        
     }
 }
