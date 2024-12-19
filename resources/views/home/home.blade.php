@@ -4,6 +4,6 @@
     @include('home.component.services.services')
     @include('home.component.values.values')
     @include('home.component.staff.staff')
-    @include('home.component.signUp.signUp')
     @include('home.component.reviews.reviews')
+    @include('home.component.signUp.signUp')
 </x-layout>
