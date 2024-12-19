@@ -9,6 +9,11 @@
     margin: 0;
     text-align: center;
 }
+.clinic p{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 24px;
+}
 
 .clinic-photos{
     display: flex;
