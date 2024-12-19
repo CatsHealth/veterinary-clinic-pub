@@ -9,14 +9,15 @@
         @csrf
 
         <div class="form-group">
+            <label for="service_id" class="appointment-label">Выберите услугу:</label>
             <select name="service_id" id="service_id" class="appointment-select" required>
+                <option value="">-- Выберите услугу --</option>
                 @foreach($services as $service)
-                    <option value="{{ $service->id }}" @if(old('service_id') == $service->id) selected @endif>
+                    <option value="{{ $service->id }}" @if(request()->get('service_id') == $service->id) selected @endif>
                         {{ $service->name }}
                     </option>
                 @endforeach
             </select>
-
         </div>
         <div id="selected-service"></div>
 
