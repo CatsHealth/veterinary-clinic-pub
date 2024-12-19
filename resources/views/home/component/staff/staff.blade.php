@@ -2,7 +2,8 @@
 <section>
     <div class="clinic">
         <div class="container">
-            <h2>Наша клиника</h2>
+            <h2>Клиника - которой можно доверять!</h2>
+            <p>Наша клиника, основана на доверии и индивидуальному подходу к каждому клиенту!</p>
             <div class="clinic-photos">
               <div class="gallery__photo-full">
                 <img class="main-image-img" src="{{asset('/img/clinick1.png')}}" alt="Большое фото">
